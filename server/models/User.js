@@ -24,7 +24,7 @@ const userSchema = new Schema({
   // array showing bio
   bio: [bioSchema],
   resume: {
-    type: Buffer,
+    type: File,
   },
   // reference to job posts
   jobsAppliedTo: [{
