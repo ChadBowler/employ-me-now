@@ -11,10 +11,6 @@ const applicationSchema = new Schema({
     required: true,
     trim: true,
   },
-  dateApplied: {
-    type: Date,
-    default: Date.now,
-  },
   accepted: {
     type: Boolean,
   }
