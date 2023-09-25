@@ -7,6 +7,37 @@ type User {
   username: String
   email: String
   password: String
+  bio: [Bio]!
+  resume: String
+  jobsAppliedTo: [JobPost]!
+  postedJobs: [JobPost]!
+  applications: [Application]!
+}
+
+type Bio {
+  id: ID
+  skills: String
+  location: String
+  userDescription: String
+}
+
+type JobPost {
+  _id: ID
+  title: String
+  company: String
+  salary: Int
+  dateCreated: String
+  description: String
+  applications: [Application]!
+  author: User
+}
+
+type Application {
+  _id: ID
+  userId: User
+  resume: String
+  dateApplied: String
+  accepted: Boolean
 }
 
 type Auth {
