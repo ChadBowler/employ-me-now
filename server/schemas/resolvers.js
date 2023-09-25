@@ -94,6 +94,15 @@ const resolvers = {
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
+    updateProfile: async (parent, { userId, skills, location, userDescription, resume }, context) => {
+      // if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          {_id: userId},
+          { $addToSet: { bio: {skills, location, userDescription} }, resume: resume },
+          { new: true }
+        );
+        return updatedUser;
+    },
   },
 };
 
