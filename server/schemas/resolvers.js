@@ -94,6 +94,7 @@ const resolvers = {
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
+    // update user profile by adding bio and resume
     updateProfile: async (parent, { userId, skills, location, userDescription, resume }, context) => {
       // if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
