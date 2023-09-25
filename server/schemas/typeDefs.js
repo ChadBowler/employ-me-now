@@ -49,11 +49,13 @@ type Query {
   users: [User]
   user(username: String!): User
   me: User
+  jobPosts: [JobPost]!
 }
 
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
+  jobPost(userId: ID!, title: String!, company: String!, salary: Int!, description: String!): JobPost
 }
 
 `;

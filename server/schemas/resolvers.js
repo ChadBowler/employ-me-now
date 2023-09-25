@@ -17,6 +17,9 @@ const resolvers = {
       //},
       // throw new AuthenticationError('You need to be logged in!');
     },
+    jobPosts: async () => {
+      return JobPost.find().populate('author').populate('applications');
+    }
   },
 
   Mutation: {
@@ -41,6 +44,26 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    jobPost: async (parent, { userId, title, company, salary, description }, context) => {
+      // if (context.user) {
+        const jobPost = await JobPost.create({
+          title,
+          company,
+          salary,
+          description,
+          author: userId,
+          // author: context.user.username,
+        });
+        await User.findByIdAndUpdate(
+          // { _id: context.user._id },
+          {_id: userId},
+          { $push: { postedJobs: jobPost._id } },
+          { new: true }
+        );
+        return jobPost;
+      //}
+      // throw new AuthenticationError('You need to be logged in!');
     },
   },
 };
