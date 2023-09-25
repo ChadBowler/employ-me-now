@@ -7,11 +7,6 @@ type User {
   username: String
   email: String
   password: String
-  bio: [Bio]!
-  resume: File
-  jobsAppliedTo: [JobPost]!
-  postedJobs: [JobPost]!
-  applications: [Application]!
 }
 
 type Auth {
