@@ -56,6 +56,7 @@ type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
   jobPost(userId: ID!, title: String!, company: String!, salary: Int!, description: String!): JobPost
+  applyToJob(userId: ID!, resume: String!, jobId: ID!): Application
 }
 
 `;
