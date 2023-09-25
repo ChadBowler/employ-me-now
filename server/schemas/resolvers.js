@@ -52,7 +52,7 @@ const resolvers = {
       return { token, user };
     },
     // post a job with title, company, salary, and description
-    jobPost: async (parent, { userId, title, company, salary, description }, context) => {
+    postJob: async (parent, { userId, title, company, salary, description }, context) => {
       // if (context.user) {
         const jobPost = await JobPost.create({
           title,
