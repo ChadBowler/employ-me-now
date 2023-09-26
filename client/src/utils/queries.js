@@ -37,9 +37,9 @@ export const QUERY_USER = gql`
 	}
 `;
 
-export const QUERY_JOBPOSTS = gql`
+export const QUERY_JOB_POSTS = gql`
 	query getJobPosts {
-		jobposts {
+		jobPosts {
 			_id
 			title
 			company
