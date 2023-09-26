@@ -15,15 +15,18 @@ const resolvers = {
     },
     // find user by id
     me: async (parent, args, context) => {
-      // if (context.user) {
+      if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('jobsAppliedTo').populate('postedJobs').populate('applications');
-      //},
+      }
       // throw new AuthenticationError('You need to be logged in!');
     },
     // find all job posts
     jobPosts: async () => {
       return JobPost.find().populate('author').populate('applications');
-    }
+    },
+    jobPost: async (parent, { _id }) => {
+      return JobPost.findOne({ _id }).populate('author').populate('applications');
+    },
   },
 
   Mutation: {
@@ -103,6 +106,15 @@ const resolvers = {
           { new: true }
         );
         return updatedUser;
+    },
+    // accept or reject an application.  Takes an application id and a boolean of accepted or not
+    acceptApplication: async (parent, {applicationId, accepted }, context) => {
+      const updatedApplication = await Application.findOneAndUpdate(
+        {_id: applicationId},
+        { $set: { accepted } },
+        { new: true }
+      );
+      return updatedApplication;
     },
   },
 };

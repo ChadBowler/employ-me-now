@@ -42,11 +42,11 @@ function Header() {
     </nav>
     <div>
      <div>
-      <a class="px-5" href="/">
-       SIGN IN
+      <a class="px-5" href="/signup">
+       SIGN UP
       </a>
      </div>
-     <a class="px-5" href="/">
+     <a class="px-5" href="/login">
       SIGNED IN WIDGET
      </a>
     </div>
