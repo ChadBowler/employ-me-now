@@ -47,7 +47,7 @@ function Header() {
       </a>
      </div>
      <a class="px-5" href="/login">
-      SIGNED IN WIDGET
+      LOG IN
      </a>
     </div>
    </div>

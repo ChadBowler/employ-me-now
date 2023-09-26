@@ -9,7 +9,8 @@ import Jobs from "./pages/Jobs";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SignUp from "./pages/SignUp";
-import LogIn from "./pages/LogIn";
+import LogIn from './pages/LogIn';
+
 
 const App = () => {
   return (
@@ -26,7 +27,7 @@ const App = () => {
                 element={<Home />} 
               />
               <Route 
-                path="/dashboard" // for signed-in user
+                path="/dashboard" // for signed-in user only 
                 element={<Dashboard />} 
               />
               <Route 
@@ -39,11 +40,11 @@ const App = () => {
               />
               <Route 
               path="/signup" 
-              element={<SignUp />} 
+              element={<SignUp />} // for new user
               />
               <Route 
               path="/login" 
-              element={<LogIn />} 
+              element={<LogIn />} // takes you to user dashboard after you have logged in
               />
             </Routes>
           </div>
