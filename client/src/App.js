@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import Jobs from "./pages/Jobs";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 const App = () => {
   return (
@@ -20,7 +22,7 @@ const App = () => {
               {/* Define routes using the Route component to render different page components at different paths */}
               {/* Define a default route that will render the Home component */}
               <Route 
-                path="/" //for any user
+                path="/home" //for any user
                 element={<Home />} 
               />
               <Route 
@@ -34,6 +36,14 @@ const App = () => {
               <Route 
               path="/contact" 
               element={<Contact />} 
+              />
+              <Route 
+              path="/signup" 
+              element={<SignUp />} 
+              />
+              <Route 
+              path="/login" 
+              element={<LogIn />} 
               />
             </Routes>
           </div>
