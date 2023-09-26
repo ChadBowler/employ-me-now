@@ -104,6 +104,15 @@ const resolvers = {
         );
         return updatedUser;
     },
+    // accept or reject an application.  Takes an application id and a boolean of accepted or not
+    acceptApplication: async (parent, {applicationId, accepted }, context) => {
+      const updatedApplication = await Application.findOneAndUpdate(
+        {_id: applicationId},
+        { $set: { accepted } },
+        { new: true }
+      );
+      return updatedApplication;
+    },
   },
 };
 

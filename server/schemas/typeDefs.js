@@ -58,8 +58,8 @@ type Mutation {
   postJob(userId: ID!, title: String!, company: String!, salary: Int!, description: String!): JobPost
   applyToJob(userId: ID!, resume: String!, jobId: ID!): Application
   updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: String!): User
+  acceptApplication(applicationId: ID!, accepted: Boolean!): Application
 }
-
 `;
 
 module.exports = typeDefs;
