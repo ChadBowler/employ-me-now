@@ -43,12 +43,14 @@ export const QUERY_JOBPOSTS = gql`
 			_id
 			title
 			company
+			salary
+			description
       applications {
         _id
         userId
         resume
         dateApplied
-        accepted:
+        accepted
       }
       author {
         _id

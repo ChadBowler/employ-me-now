@@ -49,7 +49,7 @@ type Query {
   users: [User]
   user(username: String!): User
   me: User
-  jobPosts: [JobPost]!
+  jobPosts: [JobPost]
   jobPost(_id: ID!): JobPost
 }
 
