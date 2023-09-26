@@ -1,7 +1,7 @@
 // user model
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-import bioSchema from './Bio'
+const bioSchema = require('./Bio');
 
 const userSchema = new Schema({
   username: {
@@ -24,7 +24,7 @@ const userSchema = new Schema({
   // array showing bio
   bio: [bioSchema],
   resume: {
-    type: File,
+    type: String,
   },
   // reference to job posts
   jobsAppliedTo: [{
