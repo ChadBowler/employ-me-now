@@ -1,6 +1,6 @@
 
  <a id="README.md"></a> 
- # Productivity Ninja: Project / Task Management Website
+ # Employ Me Now - Job Board Website
  <small>Copyright [Chad Bowler](https://github.com/ChadBowler), [Kwon Kyung](https://github.com/kyungkwon01), [Maridon Romney](https://github.com/mkromney), [Jacob Hargraves](https://github.com/jacobhargraves) updated Sept 24, 2023 see [License](#license) below.</small>
 
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
