@@ -1,4 +1,10 @@
 import React from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+
+import Auth from '../utils/auth';
 
 const someStyle = {
 	//add styles
@@ -28,8 +34,7 @@ const Dashboard = () => {
 			<div style={someStyle}>
 				<section>
 					<h1>
-						{' '}
-						Viewing {userParam ? `${user.username}'s` : 'your'}{' '}
+						Viewing {userParam ? `${user.username}'s` : 'your'}
 						profile.
 					</h1>
 					{/* react logic for pulling user info - name, &c. */}

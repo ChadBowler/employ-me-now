@@ -1,5 +1,5 @@
 import React from 'react';
-import JobPosts from '../components/JobPosts'; // Import the job post component here/
+// import JobPosts from '../components/JobPosts'; // Import the job post component here/
 
 const someStyle = {
 	display: 'grid',
