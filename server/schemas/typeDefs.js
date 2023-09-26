@@ -50,6 +50,7 @@ type Query {
   user(username: String!): User
   me: User
   jobPosts: [JobPost]!
+  jobPost(_id: ID!): JobPost
 }
 
 type Mutation {

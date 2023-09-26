@@ -23,7 +23,10 @@ const resolvers = {
     // find all job posts
     jobPosts: async () => {
       return JobPost.find().populate('author').populate('applications');
-    }
+    },
+    jobPost: async (parent, { _id }) => {
+      return JobPost.findOne({ _id }).populate('author').populate('applications');
+    },
   },
 
   Mutation: {
