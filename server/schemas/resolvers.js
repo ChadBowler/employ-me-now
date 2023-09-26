@@ -15,9 +15,9 @@ const resolvers = {
     },
     // find user by id
     me: async (parent, args, context) => {
-      // if (context.user) {
+      if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('jobsAppliedTo').populate('postedJobs').populate('applications');
-      //},
+      }
       // throw new AuthenticationError('You need to be logged in!');
     },
     // find all job posts
