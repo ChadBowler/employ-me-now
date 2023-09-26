@@ -1,70 +1,46 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ <a id="README.md"></a> 
+ # Productivity Ninja: Project / Task Management Website
+ <small>Copyright [Chad Bowler](https://github.com/ChadBowler), [Kwon Kyung](https://github.com/kyungkwon01), [Maridon Romney](https://github.com/mkromney), [Jacob Hargraves](https://github.com/jacobhargraves) updated Sept 24, 2023 see [License](#license) below.</small>
 
-## Available Scripts
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ 
+ ## Description
+ Description goes here 
 
-In the project directory, you can run:
+ Git Repository link: 
+ 
+ Heroku Live URL link: 
+ 
 
-### `npm start`
+ ## Table of Contents
+ 1. [Installation](#installation)
+ 2. [Usage](#usage)
+ 3. [License](#license)
+ 4. [Contribution Guidelines](#contribution)
+ 5. [Tests](#tests)
+ 6. [Questions](#questions)
+ 
+ ## Installation
+ To install this code, create a git repository or make a copy of this one and pull the code to a local device. 
+ 
+ ## Usage
+ To use this code make sure you have installed the necessary packages, libraries and frameworks. You may need to set up a local MySQL in order to use and implement the seed data. To use the deployed app simply login using one of the database generic "users" or sign up. Create Projects and their Tasks as needed, editing and deleting when necessary.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ ## License
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ## Contribution Guidelines
+ Contributions are welcome. Please create an independent branch and go through the customary and polite channels to initiate collaboration.
+ 
+ ## Tests
+ No tests have been written for this file set. Passive debugging processes were undertaken to ensure the compatability and functionality of this website and its moving parts. 
+  
 
-### `npm test`
+ ## Questions
+ <small>For additional questions or comments you can reach us here:</small>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ - GitHub: [Chad Bowler](https://github.com/ChadBowler), 
+ [Kwon Kyung](https://github.com/kyungkwon01), [Maridon Romney](https://github.com/mkromney), [Jacob Hargraves](https://github.com/jacobhargraves)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
