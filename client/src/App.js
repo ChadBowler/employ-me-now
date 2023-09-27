@@ -55,6 +55,10 @@ const App = () => {
               {/* Define routes using the Route component to render different page components at different paths */}
               {/* Define a default route that will render the Home component */}
               <Route 
+                path="/" //for any user
+                element={<Home />} 
+              />
+              <Route 
                 path="/home" //for any user
                 element={<Home />} 
               />
