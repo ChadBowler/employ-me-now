@@ -1,4 +1,5 @@
 import React from "react";
+import JobsList from "../components/JobPosts";
 
 const someStyle = {
  //add styles
@@ -44,6 +45,7 @@ const Home = () => {
       to customize these statements further to align with your specific goals
       and branding for the "Employ Me Now" website.
      </p1>
+     <JobsList />
     </div>
    </div>
   </>

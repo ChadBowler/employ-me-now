@@ -1,5 +1,6 @@
 import React from "react";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
+// import logo from "../styles/images/"
 
 const headerContainerStyle = {
  display: "flex",
@@ -23,6 +24,7 @@ function Header() {
   <>
    <div style={headerContainerStyle}>
     <p>LOGO</p>
+    {/* <img src={logo} alt="Employ Me Now Logo"/> */}
     <header style={headerStyle}>
      <h1>Header</h1>
     </header>

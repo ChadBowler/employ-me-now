@@ -1,6 +1,6 @@
 import React from "react";
-// import JobPosts from "../components/JobPosts";
-// import PostJob from "../components/PostJob"
+import JobPosts from "../components/JobPosts";
+import PostJob from "../components/PostJob"
 
 const jobListStyle = {
   border: '1px solid #000',
@@ -26,14 +26,14 @@ const Jobs = () => {
 
       <div className="job-list-container"  style={jobListStyle}>
       {/* Lists jobs: */}
-      <h2>Card for list of available Jobs ---> </h2>
-      {/* <JobPosts /> */}
+      <h2>Card for list of available Jobs </h2>
+        <JobPosts />
       </div>
 
       <div className="job-post-container" style={postJobStyle}>
       {/* Box for posting jobs: */}
       <>This is a card where you can use a form to post a new Job</>
-      {/* <PostJob /> */}
+        <PostJob />
       </div>
 
    </div>
