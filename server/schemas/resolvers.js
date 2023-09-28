@@ -2,6 +2,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, JobPost, Application } = require('../models');
 const { signToken } = require('../utils/auth');
+const { GraphQLUpload } = require('graphql-upload');
+const fs = require('fs'); // Node.js File System module
+const path = require('path');
+const { createWriteStream } = require('fs');
 
 const resolvers = {
   Query: {
@@ -115,6 +119,50 @@ const resolvers = {
         { new: true }
       );
       return updatedApplication;
+    },
+    uploadResume: async (_, { file }) => {
+      // Ensure that a file was provided
+      if (!file) {
+        throw new Error('No file provided');
+      }
+
+      try {
+        // Create a file stream to store the uploaded file
+        const { createReadStream, filename, mimetype, encoding } = await file;
+        const stream = createReadStream();
+
+        // Define the directory where uploaded files will be stored
+        const uploadDir = path.join(__dirname, 'uploads'); // You can customize this directory
+
+        // Ensure the upload directory exists; create it if not
+        if (!fs.existsSync(uploadDir)) {
+          fs.mkdirSync(uploadDir, { recursive: true });
+        }
+
+        // Define the path where the file will be saved
+        const filePath = path.join(uploadDir, filename);
+
+        // Create a writable stream and pipe the read stream to it
+        const writeStream = createWriteStream(filePath);
+        await new Promise((resolve, reject) => {
+          stream.pipe(writeStream);
+          stream.on('end', resolve);
+          stream.on('error', (error) => {
+            writeStream.close();
+            fs.unlinkSync(filePath); // Delete the file in case of an error
+            reject(error);
+          });
+        });
+
+        // Return the file details
+        return {
+          filename,
+          path: filePath,
+        };
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        throw new Error('Error uploading file');
+      }
     },
   },
 };
