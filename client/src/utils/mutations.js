@@ -38,6 +38,8 @@ export const UPDATE_PROFILE = gql`
         }
         resume
       }
+		}
+	}
 `;
 
 export const POST_JOB = gql`
@@ -82,5 +84,5 @@ export const APPLY_TO_JOB = gql`
       resume
       jobId
     }
-  }
-}`;
+	}
+`;
