@@ -3,9 +3,40 @@ import { Link, Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import '../styles/styles.css';
+const flexContainerStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  height: 'calc(100vh - 20px)',
+  paddingTop: '20px',
+  backgroundColor: '#272727',
+};
+
+const formColumnStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const formInputStyles = {
+  marginBottom: '10px',
+};
+
+const btnPrimaryStyles = {
+  backgroundColor: '#1F5014',
+  color: '#F6F6F6',
+  border: 'none',
+};
+
+const btnPrimaryHoverStyles = {
+  backgroundColor: '#343a40',
+};
+
+const btnPrimaryActiveStyles = {
+  backgroundColor: '#343a40',
+};
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -25,7 +56,6 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -72,7 +102,7 @@ const Signup = () => {
       try {
         const { data } = await addUser({
           variables: { ...formState },
-          refetchQueries: [{ query: QUERY_USER }, { query: QUERY_ME }]
+          refetchQueries: [{ query: QUERY_USER }, { query: QUERY_ME }],
         });
 
         Auth.login(data.addUser.token);
@@ -84,7 +114,7 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-container" style={{ paddingTop: '20px' }}>
+    <main style={flexContainerStyles}>
       <div className="col-12 col-lg-10">
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
@@ -92,13 +122,13 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/dashboard">to the dashboard.</Link>
+                <Link to="/dashboard">to your dashboard.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit} className="form-column">
+              <form onSubmit={handleFormSubmit} style={formColumnStyles}>
                 <div className="form-group">
                   <input
-                    className="form-input"
+                    style={formInputStyles}
                     placeholder="Your name"
                     name="name"
                     type="text"
@@ -112,7 +142,7 @@ const Signup = () => {
                 </div>
                 <div className="form-group">
                   <input
-                    className="form-input"
+                    style={formInputStyles}
                     placeholder="Your username"
                     name="username"
                     type="text"
@@ -126,7 +156,7 @@ const Signup = () => {
                 </div>
                 <div className="form-group">
                   <input
-                    className="form-input"
+                    style={formInputStyles}
                     placeholder="Your email"
                     name="email"
                     type="email"
@@ -140,7 +170,7 @@ const Signup = () => {
                 </div>
                 <div className="form-group">
                   <input
-                    className="form-input"
+                    style={formInputStyles}
                     placeholder="******"
                     name="password"
                     type="password"
@@ -154,7 +184,7 @@ const Signup = () => {
                 </div>
                 <div className="form-group">
                   <input
-                    className="form-input"
+                    style={formInputStyles}
                     placeholder="Your phone number"
                     name="phoneNumber"
                     type="tel"
@@ -167,9 +197,12 @@ const Signup = () => {
                   )}
                 </div>
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  style={{ ...btnPrimaryStyles, cursor: 'pointer' }}
                   type="submit"
+                  onClick={() => {
+                    handleFormSubmit();
+                    <Navigate to="/dashboard" />;
+                  }}
                 >
                   Submit
                 </button>
