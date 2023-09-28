@@ -3,23 +3,24 @@ import "bootstrap/dist/css/bootstrap.css";
 // import logo from "../styles/images/"
 
 const headerContainerStyle = {
- display: "flex",
- justifyContent: "space-between",
- alignItems: "center",
- background: "#f0f0f0", // Adjust background color as needed
- padding: "10px 20px",
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+	background: '#f0f0f0', // Adjust background color as needed
+	padding: '10px 20px',
 };
 
 const headerStyle = {
- margin: 0,
+	margin: 0,
 };
 
 const navStyle = {
- display: "flex",
- alignItems: "center",
+	display: 'flex',
+	alignItems: 'center',
 };
 
 function Header() {
+
  return (
   <>
    <div style={headerContainerStyle}>

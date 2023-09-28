@@ -1,39 +1,54 @@
-import React from "react";
-// Imports Apollo Client dependencies: //
-import { useQuery, gql } from "@apollo/client"; 
+import React from 'react';
 
-const GetJobPost = gql`
- query JobPost {
-  jobPosts {
-   _id
-   title
-   company
-   salary
-   description
-  }
- }
-`;
-
-const JobsList = () => {
- const { loading, error, data } = useQuery(GetJobPost);
-
- if (loading) return <p>Loading...</p>;
- if (error) return <p>Error: {error.message}</p>;
-
- return (
-  <>
-     <h2>Job Listings</h2>
-     <ul>
-      {data.jobPosts.map((jobPost) => (
-       <li key={jobPost._id}>
-        <h3>{jobPost.title}</h3>
-        <p>{jobPost.company}</p>
-        <p>{jobPost.description}</p>
-       </li>
-      ))}
-     </ul>   
-  </>
- );
+const postSize = {
+	height: '300px',
+	width: '200px',
+	border: '1rem solid #1F5014',
 };
 
-export default JobsList;
+const buttonStyle = {
+	color: 'white',
+	backgroundColor: '#1F5014',
+	border: 'none',
+	width: '150px',
+	height: '50px',
+};
+
+const jobTitleStyle = {
+	textAlign: 'center',
+	marginTop: '1rem',
+};
+
+const jobDescriptionStyle = {
+	textAlign: 'center',
+	marginTop: '1rem',
+};
+
+const JobPosts = ({ jobPosts }) => {
+	if (!jobPosts) {
+		return <h3 className='text-white text-center'>No Jobs Posted</h3>;
+	}
+	return (
+		<div className='d-flex flex-row justify-content-center mx-4 gap-4'>
+			{jobPosts &&
+				jobPosts.map((jobPost) => (
+					<div key={jobPost._id}>
+						<div
+							style={postSize}
+							className='text-white'
+						>
+							<h5 style={jobTitleStyle}>{jobPost.title}</h5>
+							<p style={jobDescriptionStyle}>
+								{jobPost.description}
+							</p>
+						</div>
+						<div className='d-flex justify-content-center mt-5'>
+							<button style={buttonStyle}>See This Job</button>
+						</div>
+					</div>
+				))}
+		</div>
+	);
+};
+
+export default JobPosts;
