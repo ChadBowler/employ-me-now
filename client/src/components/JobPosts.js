@@ -24,60 +24,29 @@ const jobDescriptionStyle = {
 	marginTop: '1rem',
 };
 
-const JobPosts = ({ postedJobs }) => {
-	if (!postedJobs.length) {
-		return <h3>No Jobs Posted</h3>;
+const JobPosts = ({ jobPosts }) => {
+	if (!jobPosts) {
+		return <h3 className='text-white text-center'>No Jobs Posted</h3>;
 	}
 	return (
 		<div className='d-flex flex-row justify-content-center mx-4 gap-4'>
-			<div>
-				<div
-					style={postSize}
-					className='text-white'
-				>
-					<h5 style={jobTitleStyle}>Job Title</h5>
-					<p style={jobDescriptionStyle}>Job Description</p>
-				</div>
-				<div className='d-flex justify-content-center mt-5'>
-					<button style={buttonStyle}>See This Job</button>
-				</div>
-			</div>
-			<div>
-				<div
-					style={postSize}
-					className='text-white'
-				>
-					<h5 style={jobTitleStyle}>Job Title</h5>
-					<p style={jobDescriptionStyle}>Job Description</p>
-				</div>
-				<div className='d-flex justify-content-center mt-5'>
-					<button style={buttonStyle}>See This Job</button>
-				</div>
-			</div>
-			<div>
-				<div
-					style={postSize}
-					className='text-white'
-				>
-					<h5 style={jobTitleStyle}>Job Title</h5>
-					<p style={jobDescriptionStyle}>Job Description</p>
-				</div>
-				<div className='d-flex justify-content-center mt-5'>
-					<button style={buttonStyle}>See This Job</button>
-				</div>
-			</div>
-			<div>
-				<div
-					style={postSize}
-					className='text-white'
-				>
-					<h5 style={jobTitleStyle}>Job Title</h5>
-					<p style={jobDescriptionStyle}>Job Description</p>
-				</div>
-				<div className='d-flex justify-content-center mt-5'>
-					<button style={buttonStyle}>See This Job</button>
-				</div>
-			</div>
+			{jobPosts &&
+				jobPosts.map((jobPost) => (
+					<div key={jobPost._id}>
+						<div
+							style={postSize}
+							className='text-white'
+						>
+							<h5 style={jobTitleStyle}>{jobPost.title}</h5>
+							<p style={jobDescriptionStyle}>
+								{jobPost.description}
+							</p>
+						</div>
+						<div className='d-flex justify-content-center mt-5'>
+							<button style={buttonStyle}>See This Job</button>
+						</div>
+					</div>
+				))}
 		</div>
 	);
 };

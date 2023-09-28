@@ -1,6 +1,8 @@
 import React from 'react';
-import JobPosts from '../components/JobPosts'; // Import the job post component here/
-import Card from 'react-bootstrap/Card';
+import JobPosts from '../components/JobPosts';
+
+import { useQuery } from '@apollo/client';
+import { QUERY_JOB_POSTS } from '../utils/queries';
 
 const someStyle = {
 	// display: 'grid',
@@ -11,15 +13,34 @@ const someStyle = {
 	// padding: '20px',
 };
 
+const buttonStyle = {
+	color: 'white',
+	backgroundColor: '#1F5014',
+	border: 'none',
+	width: '150px',
+	height: '50px',
+};
+
 const Jobs = () => {
+	const { loading, data } = useQuery(QUERY_JOB_POSTS);
+	const jobPosts = data?.jobPosts || [];
 	return (
 		<div
 			className='min-vh-100 bg-dark
     '
 		>
-			<h1 className='text-left ms-5 ps-5 text-white py-5'>Jobs:</h1>
+			<div className='d-flex justify-content-between'>
+				<h1 className='text-left ms-5 ps-5 text-white py-5'>Jobs:</h1>
+				<div className='me-5 pe-5 py-5'>
+					<button style={buttonStyle}>Post New Job</button>
+				</div>
+			</div>
 			<div style={someStyle}>
-				<JobPosts />
+				{loading ? (
+					<div>Loading...</div>
+				) : (
+					<JobPosts jobPosts={jobPosts} />
+				)}
 			</div>
 		</div>
 	);
