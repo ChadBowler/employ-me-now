@@ -4,6 +4,12 @@ const bcrypt = require('bcrypt');
 const bioSchema = require('./Bio');
 
 const userSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
   username: {
     type: String,
     required: true,
