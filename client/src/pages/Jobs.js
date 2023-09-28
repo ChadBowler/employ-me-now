@@ -1,5 +1,6 @@
 import React from "react";
 import JobPosts from "../components/JobPosts"; // Import the job post component here/
+import ResumeUpload from "../components/ResumeUpload";
 
 const someStyle = {
   display: "grid",
@@ -16,6 +17,7 @@ const Jobs = () => {
     <h1>THIS IS THE JOBS PAGE</h1>
       <div style={someStyle}>
         <>JobPosts </> {/* We'll put the JOBS component here.  */}
+        <ResumeUpload/>
       </div>
     </>
   );

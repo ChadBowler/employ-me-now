@@ -53,6 +53,11 @@ type Query {
   jobPost(_id: ID!): JobPost
 }
 
+type File {
+  filename: String!
+  path: String!
+}
+
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
@@ -60,6 +65,7 @@ type Mutation {
   applyToJob(userId: ID!, resume: String!, jobId: ID!): Application
   updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: String!): User
   acceptApplication(applicationId: ID!, accepted: Boolean!): Application
+  uploadResume(file: Upload!): File!
 }
 `;
 
