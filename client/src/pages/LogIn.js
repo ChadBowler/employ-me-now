@@ -5,6 +5,9 @@ import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 const someStyle = {
   //add styles
 
@@ -52,27 +55,36 @@ const LogIn = () => {
   return (
     <>
     <div style={someStyle}>
-      <h1>LOGIN PAGE</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <input 
-            type="email"
-            name="email"
-            value={formState.email}
-            onChange={handleChange}>
-          </input>
+      <h1>Log In</h1>
+      {data ? (
+        <p>
+          Success! You may now head{' '}
+          <Link to="/">back to the homepage.</Link>
+        </p>
+      ) : (
+      <Form onSubmit={handleFormSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+  
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control name="password" value={formState.password} onChange={handleChange} type="password" placeholder="Password" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Log In
+        </Button>
+      </Form>
+      )}
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">
+          {error.message}
         </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formState.password}
-            onChange={handleChange}>
-          </input>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      )}
       <p>Don't have an account?</p>
       <Link to="/signup">signup here</Link>
     </div>
