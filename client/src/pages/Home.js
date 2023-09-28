@@ -45,7 +45,12 @@ const Home = () => {
       to customize these statements further to align with your specific goals
       and branding for the "Employ Me Now" website.
      </p1>
+     <h5>Job Posts</h5>
+     {/* The jobs list should not be clickable unless logged in. */}
      <JobsList />
+     <h5>Hero Section</h5>
+     <h5>About Section</h5>
+     
     </div>
    </div>
   </>

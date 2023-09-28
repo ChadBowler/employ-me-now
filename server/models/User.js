@@ -21,6 +21,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  phoneNumber: {
+    type: Number,
+    required: true,
+    minlength: 10,
+  },
   // array showing bio
   bio: [bioSchema],
   resume: {

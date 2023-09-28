@@ -10,7 +10,6 @@ const signUpContainer = {
 const SignUp = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -22,12 +21,12 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!name || !username || !dateOfBirth || !email || !password || !phoneNumber) {
+    if (!name || !username || !email || !password || !phoneNumber) {
       alert('Please fill in all fields.');
       return;
     }
 
-    console.log('Sign up submitted with:', { name, username, dateOfBirth, email, password, phoneNumber });
+    console.log('Sign up submitted with:', { name, username, email, password, phoneNumber });
   };
 
   return (
@@ -44,20 +43,16 @@ const SignUp = () => {
             <input type="text" id="username" value={username} onChange={(e) => handleInputChange(e, setUsername)} required />
           </div>
           <div>
-            <label htmlFor="dateOfBirth">Date of Birth:</label>
-            <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={(e) => handleInputChange(e, setDateOfBirth)} required />
-          </div>
-          <div>
             <label htmlFor="email">Email:</label>
             <input type="email" id="email" value={email} onChange={(e) => handleInputChange(e, setEmail)} required />
           </div>
           <div>
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <input type="tel" id="phoneNumber" value={phoneNumber} onChange={(e) => handleInputChange(e, setPhoneNumber)} required />
-          </div>
-          <div>
             <label htmlFor="password">Password:</label>
             <input type="password" id="password" value={password} onChange={(e) => handleInputChange(e, setPassword)} required />
+          </div>
+          <div>
+            <label htmlFor="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" value={phoneNumber} onChange={(e) => handleInputChange(e, setPhoneNumber)} required />
           </div>
           <button type="submit">Sign Up</button>
         </form>
