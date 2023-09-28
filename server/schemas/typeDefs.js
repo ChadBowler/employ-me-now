@@ -63,7 +63,7 @@ type Mutation {
   login(email: String!, password: String!): Auth
   postJob(userId: ID!, title: String!, company: String!, salary: Int!, description: String!): JobPost
   applyToJob(userId: ID!, resume: String!, jobId: ID!): Application
-  updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: String!): User
+  updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: Upload): User
   acceptApplication(applicationId: ID!, accepted: Boolean!): Application
   uploadResume(file: Upload!): File!
 }

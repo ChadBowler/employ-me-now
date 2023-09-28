@@ -7,6 +7,9 @@ const fs = require('fs'); // Node.js File System module
 const path = require('path');
 const { createWriteStream } = require('fs');
 
+const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx'];
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
+
 const resolvers = {
   Query: {
     // find all users
@@ -126,13 +129,22 @@ const resolvers = {
         throw new Error('No file provided');
       }
 
+      if (file.size > MAX_FILE_SIZE) {
+        throw new Error('File size exceeds the maximum allowed limit (10MB)');
+      }
+
+      const fileExtension = path.extname(file.filename).toLowerCase();
+      if (!ALLOWED_EXTENSIONS.includes(fileExtension)) {
+        throw new Error('Invalid file type. Allowed types: .pdf, .doc, .docx');
+      }
+
       try {
         // Create a file stream to store the uploaded file
         const { createReadStream, filename, mimetype, encoding } = await file;
         const stream = createReadStream();
 
-        // Define the directory where uploaded files will be stored
-        const uploadDir = path.join(__dirname, 'uploads'); // You can customize this directory
+       
+        const uploadDir = path.join(__dirname, 'user-resumes');
 
         // Ensure the upload directory exists; create it if not
         if (!fs.existsSync(uploadDir)) {
