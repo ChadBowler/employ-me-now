@@ -7,14 +7,19 @@ import Auth from "../utils/auth";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import _variables from "../styles/_variables.scss";
 
 const someStyle = {
   //add styles
-
   maxWidth: "400px",
   margin: "0 auto",
   padding: "20px",
-  border: "1px solid #ccc",
+};
+
+const buttonStyle = {
+  background: "#1F5014",
+  borderRadius: "10px",
+  color: "white",
 };
 
 const LogIn = () => {
@@ -55,7 +60,7 @@ const LogIn = () => {
   return (
     <>
     <div style={someStyle}>
-      <h1>Log In</h1>
+      <h1 className="text-center">Log In</h1>
       {data ? (
         <p>
           Success! You may now head{' '}
@@ -64,7 +69,7 @@ const LogIn = () => {
       ) : (
       <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Email:</Form.Label>
           <Form.Control name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -72,12 +77,14 @@ const LogIn = () => {
         </Form.Group>
   
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Password:</Form.Label>
           <Form.Control name="password" value={formState.password} onChange={handleChange} type="password" placeholder="Password" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Log In
-        </Button>
+        <div className="d-flex justify-content-center">
+          <Button style={buttonStyle} variant="primary-color" type="submit">
+            Log In
+          </Button>
+        </div>
       </Form>
       )}
       {error && (
@@ -85,8 +92,10 @@ const LogIn = () => {
           {error.message}
         </div>
       )}
-      <p>Don't have an account?</p>
-      <Link to="/signup">signup here</Link>
+      <div className="text-center">
+        <p>Don't have an account?</p>
+        <Link to="/signup">Sign up here</Link>
+      </div>
     </div>
     </>
   );
