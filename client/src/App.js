@@ -9,7 +9,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
-
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Jobs from './pages/Jobs';
@@ -43,47 +42,51 @@ const client = new ApolloClient({
 });
 
 const App = () => {
-	return (
-		<ApolloProvider client={client}>
-			<Router>
-				<div className='flex-column justify-flex-start min-100-vh bg-primary-black'>
-					<Header />
-
-					<div>
-						<Routes>
-							{/* Define routes using the Route component to render different page components at different paths */}
-							{/* Define a default route that will render the Home component */}
-							<Route
-								path='/home' //for any user
-								element={<Home />}
-							/>
-							<Route
-								path='/dashboard' // for signed-in user
-								element={<Dashboard />}
-							/>
-							<Route
-								path='/jobs'
-								element={<Jobs />}
-							/>
-							<Route
-								path='/contact'
-								element={<Contact />}
-							/>
-							<Route
-								path='/signup'
-								element={<SignUp />}
-							/>
-							<Route
-								path='/login'
-								element={<LogIn />}
-							/>
-						</Routes>
-					</div>
-					<Footer />
-				</div>
-			</Router>
-		</ApolloProvider>
-	);
-};
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh bg-primary-black">
+          <Header />
+          
+          <div className="container">
+            <Routes>
+              {/* Define routes using the Route component to render different page components at different paths */}
+              {/* Define a default route that will render the Home component */}
+              <Route 
+                path="/" //for any user
+                element={<Home />} 
+              />
+              <Route 
+                path="/home" //for any user
+                element={<Home />} 
+              />
+              <Route 
+                path="/dashboard" // for signed-in user only 
+                element={<Dashboard />} 
+              />
+              <Route 
+                path="/jobs" 
+                element={<Jobs />} 
+              />
+              <Route 
+              path="/contact" 
+              element={<Contact />} 
+              />
+              <Route 
+              path="/signup" 
+              element={<SignUp />} // for new user
+              />
+              <Route 
+              path="/login" 
+              element={<LogIn />} // takes you to user dashboard after you have logged in
+              />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </ApolloProvider>
+  );
+}
 
 export default App;

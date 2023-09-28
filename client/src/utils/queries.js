@@ -6,6 +6,7 @@ export const QUERY_USER = gql`
 			_id
 			username
 			email
+			phoneNumber
 			jobsAppliedTo {
 				_id
 				title
@@ -89,6 +90,7 @@ export const QUERY_ME = gql`
 			_id
 			username
 			email
+			phoneNumber
 			jobsAppliedTo {
 				_id
 				title

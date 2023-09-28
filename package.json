@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "apollo-upload-client": "^17.0.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "prettier": "^3.0.3",
+    "react-router-dom": "^6.16.0"
   }
 }

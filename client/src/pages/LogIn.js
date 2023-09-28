@@ -7,6 +7,7 @@ import Auth from "../utils/auth";
 
 const someStyle = {
   //add styles
+
   maxWidth: "400px",
   margin: "0 auto",
   padding: "20px",

@@ -29,10 +29,30 @@ const resolvers = {
     },
   },
 
+  // const handleSignUp = async (formData) => {
+  //   try {
+  //     // Send the form data to the server using GraphQL mutation
+  //     // You'll need to handle this based on your Apollo Client setup
+  //     const response = await signUpMutation({
+  //       variables: {
+  //         ...formData,
+  //       },
+  //     });
+  
+  //     console.log('User signed up:', response.data.addUser);
+  
+  //     // Handle storing the response data in MongoDB (User collection)
+  //     // You'll need to handle this based on your backend setup
+  
+  //   } catch (error) {
+  //     console.error('Error signing up:', error);
+  //   }
+  // };
+
   Mutation: {
-    // add user
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    // adds new user
+    addUser: async (parent, { username, email, password, phone }) => {
+      const user = await User.create({ username, email, password, phone });
       const token = signToken(user);
       return { token, user };
     },
