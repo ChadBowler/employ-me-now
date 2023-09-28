@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+// alter these to match your sign-up:
+
+// import { Link } from "react-router-dom";
+// import { useMutation } from "@apollo/client";
+// import { LOGIN_USER } from "../utils/mutations";
 
 const signUpContainer = {
   maxWidth: '400px',
