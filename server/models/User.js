@@ -7,6 +7,12 @@ import bcrypt from 'bcrypt';
 import bioSchema from './Bio.js';
 
 const userSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
   username: {
     type: String,
     required: true,
@@ -23,6 +29,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5,
+  },
+  phoneNumber: {
+    type: Number,
+    required: true,
+    minlength: 10,
   },
   // array showing bio
   bio: [bioSchema],

@@ -4,8 +4,10 @@ export const QUERY_USER = gql`
 	query user($username: String!) {
 		user(username: $username) {
 			_id
+			name
 			username
 			email
+			phoneNumber
 			jobsAppliedTo {
 				_id
 				title
@@ -37,26 +39,48 @@ export const QUERY_USER = gql`
 	}
 `;
 
-export const QUERY_JOBPOSTS = gql`
-	query getJobPosts {
-		jobposts {
+// export const QUERY_JOB_POSTS = gql`
+// 	query getJobPosts {
+// 		jobPosts {
+// 			_id
+// 			title
+// 			company
+// 			salary
+// 			description
+// 			applications {
+// 				_id
+// 				userId
+// 				resume
+// 				dateApplied
+// 				accepted
+// 			}
+// 			author {
+// 				_id
+// 				username
+// 				email
+// 			}
+// 		}
+// 	}
+// `;
+
+export const QUERY_JOB_POSTS = gql`
+	query GetJobPosts {
+		jobPosts {
 			_id
 			title
 			company
-			salary
 			description
-      applications {
-        _id
-        userId
-        resume
-        dateApplied
-        accepted
-      }
-      author {
-        _id
-        username
-        email
-      }
+		}
+	}
+`;
+
+export const QUERY_SINGLE_JOB_POST = gql`
+	query GetSingleJobPost($id: ID!) {
+		jobPost(_id: $id) {
+			_id
+			title
+			description
+			company
 		}
 	}
 `;
@@ -67,6 +91,7 @@ export const QUERY_ME = gql`
 			_id
 			username
 			email
+			phoneNumber
 			jobsAppliedTo {
 				_id
 				title
