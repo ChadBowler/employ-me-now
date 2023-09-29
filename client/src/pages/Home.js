@@ -9,7 +9,10 @@ const Home = () => {
  return (
   <>
    <div>
+
     <div style={someStyle}>
+    <h5>Hero Section</h5>
+    <>The big landing page with the large photo. Do what you need to with bootstrap and css.</>
      <h5>Find a Job that fits you! </h5>
      <p1>
       Welcome to Employ Me Now - Your Gateway to Opportunity! Are you ready to
@@ -18,16 +21,6 @@ const Home = () => {
       job seekers and recruiters alike. Explore thousands of job listings,
       create a standout profile, and connect with top employers. Join us today
       and embark on your journey to professional success!
-     </p1>
-    </div>
-    <div>
-     <h5>About Us</h5>
-     <p1>
-      At Employ Me Now, we believe that finding the right job or talent should
-      be effortless. With a passion for connecting people to their dream
-      careers, we've created a platform that caters to both job seekers and
-      recruiters. Our user-friendly interface and powerful features make it easy
-      to navigate the job market or discover exceptional talent.
      </p1>
     </div>
     <div>
@@ -48,8 +41,7 @@ const Home = () => {
      <h5>Job Posts</h5>
      {/* The jobs list should not be clickable unless logged in. */}
      <JobsList />
-     <h5>Hero Section</h5>
-     <h5>About Section</h5>
+     
      
     </div>
    </div>
