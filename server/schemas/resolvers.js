@@ -1,11 +1,19 @@
 // resolvers
-const { AuthenticationError } = require('apollo-server-express');
-const { User, JobPost, Application } = require('../models');
-const { signToken } = require('../utils/auth');
-const { GraphQLUpload } = require('graphql-upload');
-const fs = require('fs'); // Node.js File System module
-const path = require('path');
-const { createWriteStream } = require('fs');
+// const { AuthenticationError } = require('apollo-server-express');
+// const { User, JobPost, Application } = require('../models');
+// const { signToken } = require('../utils/auth');
+// const { GraphQLUpload } = require('graphql-upload');
+// const fs = require('fs');
+// const path = require('path');
+// const { createWriteStream } = require('fs');
+import { AuthenticationError } from 'apollo-server-express';
+import { User, JobPost, Application } from '../models/index.js';
+import { signToken } from '../utils/auth.js';
+// import { GraphQLUpload } from 'graphql-upload';
+import fs from 'fs';
+import path from 'path';
+import { createWriteStream } from 'fs';
+
 
 const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx'];
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
@@ -179,4 +187,4 @@ const resolvers = {
   },
 };
 
-module.exports = resolvers;
+export default resolvers;

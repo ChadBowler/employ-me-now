@@ -1,7 +1,10 @@
 //typeDefs
-const { gql } = require('apollo-server-express');
+// const { gql } = require('apollo-server-express');
+import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
+scalar Upload
+
 type User {
   _id: ID
   username: String
@@ -69,4 +72,4 @@ type Mutation {
 }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;

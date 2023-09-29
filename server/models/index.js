@@ -1,5 +1,8 @@
-const User = require('./User');
-const JobPost = require('./JobPost');
-const Application = require('./Application');
+// const User = require('./User');
+// const JobPost = require('./JobPost');
+// const Application = require('./Application');
+import User from './User.js';
+import JobPost from './JobPost.js';
+import Application from './Application.js';
 
-module.exports = { User, JobPost, Application };
+export { User, JobPost, Application };

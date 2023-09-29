@@ -1,5 +1,6 @@
 //application model
-const { Schema, model } = require('mongoose');
+// const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const applicationSchema = new Schema({
   userId: {
@@ -22,4 +23,4 @@ const applicationSchema = new Schema({
 
 const Application = model('Application', applicationSchema);
 
-module.exports = Application;
+export default Application;
