@@ -1,5 +1,6 @@
 // bioSchema
-const { Schema } = require('mongoose');
+// const { Schema } = require('mongoose');
+import { Schema } from "mongoose";
 
 const bioSchema = new Schema({
   skills: {
@@ -13,4 +14,4 @@ const bioSchema = new Schema({
   },
 });
 
-module.exports = bioSchema;
+export default bioSchema;

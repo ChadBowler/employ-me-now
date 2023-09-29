@@ -35,6 +35,7 @@ const Jobs = () => {
    <div style={someStyle}>
     {loading ? <div>Loading...</div> : <JobPosts jobPosts={jobPosts} />}
    </div>
+       
   </div>
  );
 };
