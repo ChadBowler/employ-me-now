@@ -8,7 +8,7 @@ import path from 'path';
 // const { graphqlUploadExpress } = require('graphql-upload');
 // const { ApolloServer } = require('apollo-server-express');
 // const path = require('path');
-// const { authMiddleware } = require('./utils/auth');
+import { authMiddleware } from './utils/auth.js';
 
 // const { typeDefs, resolvers } = require('./schemas');
 import { typeDefs, resolvers } from './schemas/index.js';
@@ -22,7 +22,7 @@ app.use(graphqlUploadExpress());
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
-	// context: authMiddleware,
+  context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: false }));

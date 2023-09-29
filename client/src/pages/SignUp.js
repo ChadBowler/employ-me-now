@@ -107,7 +107,7 @@ const Signup = () => {
         });
 
         Auth.login(data.addUser.token);
-        return <Navigate to="/dashboard" />;
+        return <Navigate to="/me" />;
       } catch (e) {
         console.error(e);
       }
@@ -123,7 +123,7 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/dashboard">to your dashboard.</Link>
+                <Link to="/me">to your dashboard.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit} style={formColumnStyles}>
@@ -201,7 +201,7 @@ const Signup = () => {
                   style={{ ...btnPrimaryStyles, cursor: 'pointer' }}
                   type="submit"
                   onClick={() => {
-                    <Navigate to="/dashboard" />;
+                    <Navigate to="/me" />;
                   }}
                 >
                   Submit

@@ -25,12 +25,12 @@ class AuthService {
 
 	login(idToken) {
 		localStorage.setItem('id_token', idToken);
-		window.location.assign('/dashboard');
+		window.location.assign('/me');
 	}
 
 	logout() {
 		localStorage.removeItem('id_token');
-		window.location.reload();
+		window.location.assign('/');
 	}
 }
 
