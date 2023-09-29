@@ -44,7 +44,7 @@ const Signup = () => {
     email: '',
     password: '',
     name: '',
-    phoneNumber: 0,
+    phoneNumber: '',
   });
   const [errorState, setErrorState] = useState({
     username: '',
@@ -57,10 +57,9 @@ const Signup = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
       // If name is "phoneNumber," parse the value as an integer
-      const parsedValue = name === 'phoneNumber' ? parseInt(value, 10) : value;
     setFormState({
       ...formState,
-      [name]: parsedValue,
+      [name]: value,
     });
   };
 
