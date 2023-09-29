@@ -33,7 +33,7 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('jobsAppliedTo').populate('postedJobs').populate('applications');
       }
-      // throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError('You need to be logged in!');
     },
     // find all job posts
     jobPosts: async () => {
@@ -70,31 +70,31 @@ const resolvers = {
       return { token, user };
     },
     // post a job with title, company, salary, and description
-    postJob: async (parent, { userId, title, company, salary, description }, context) => {
-      // if (context.user) {
+    postJob: async (parent, { title, company, salary, description }, context) => {
+      if (context.user) {
         const jobPost = await JobPost.create({
           title,
           company,
           salary,
           description,
-          author: userId,
-          // author: context.user.username,
+          //author: userId,
+          author: context.user.userId,
         });
         await User.findByIdAndUpdate(
-          // { _id: context.user._id },
-          {_id: userId},
+          { _id: context.user._id },
+          //{_id: userId},
           { $push: { postedJobs: jobPost._id } },
           { new: true }
         );
         return jobPost;
-      //}
-      // throw new AuthenticationError('You need to be logged in!');
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     // apply to a job
-    applyToJob: async (parent, { userId, resume, jobId }, context) => {
-      // if (context.user) {
+    applyToJob: async (parent, { resume, jobId }, context) => {
+      if (context.user) {
         const application = await Application.create({
-          userId,
+          userId: context.user._id,
           resume,
         });
         await JobPost.findByIdAndUpdate(
@@ -103,24 +103,26 @@ const resolvers = {
           { new: true }
         );
         await User.findByIdAndUpdate(
-          // { _id: context.user._id },
-          {_id: userId},
+          { _id: context.user._id },
+          //{_id: userId},
           { $push: { applications: application._id } },
           { new: true }
         );
         return application;
-      // }
-      // throw new AuthenticationError('You need to be logged in!');
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     // update user profile by adding bio and resume
-    updateProfile: async (parent, { userId, skills, location, userDescription, resume }, context) => {
-      // if (context.user) {
+    updateProfile: async (parent, { skills, location, userDescription, resume }, context) => {
+      if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          {_id: userId},
+          {_id: context.user._id},
           { $addToSet: { bio: {skills, location, userDescription} }, resume: resume },
           { new: true }
         );
         return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     // accept or reject an application.  Takes an application id and a boolean of accepted or not
     acceptApplication: async (parent, {applicationId, accepted }, context) => {

@@ -61,7 +61,11 @@ const App = () => {
                 element={<Home />} 
               />
               <Route 
-                path="/dashboard" // for signed-in user only 
+                path="/me" 
+                element={<Dashboard />}
+              />
+              <Route 
+                path="/dashboard/:username" // for signed-in user only 
                 element={<Dashboard />} 
               />
               <Route 

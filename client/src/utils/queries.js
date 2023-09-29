@@ -1,42 +1,23 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
-	query user($username: String!) {
-		user(username: $username) {
-			_id
-			name
-			username
-			email
-			phoneNumber
-			jobsAppliedTo {
-				_id
-				title
-				company
-				salary
-				dateCreated
-				description
-				applications
-				author
-			}
-			postedJobs {
-				_id
-				title
-				company
-				salary
-				dateCreated
-				description
-				applications
-				author
-			}
-			applications {
-				_id
-				userId
-				resume
-				dateApplied
-				accepted
-			}
-		}
-	}
+query user($username: String!) {
+  user(username: $username) {
+    username
+    resume
+    phoneNumber
+    password
+    name
+    email
+    bio {
+      userDescription
+      skills
+      location
+      id
+    }
+    _id
+  }
+}
 `;
 
 // export const QUERY_JOB_POSTS = gql`
@@ -86,32 +67,20 @@ export const QUERY_SINGLE_JOB_POST = gql`
 `;
 
 export const QUERY_ME = gql`
-	query me {
-		me {
-			_id
-			username
-			email
-			phoneNumber
-			jobsAppliedTo {
-				_id
-				title
-				company
-				salary
-				dateCreated
-				description
-				applications
-				author
-			}
-			postedJobs {
-				_id
-				title
-				company
-				salary
-				dateCreated
-				description
-				applications
-				author
-			}
-		}
-	}
+query me {
+  me {
+    _id
+    username
+    email
+    bio {
+      id
+      location
+      skills
+      userDescription
+    }
+    name
+    phoneNumber
+    resume
+  }
+}
 `;

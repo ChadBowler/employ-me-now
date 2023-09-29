@@ -36,7 +36,7 @@ function Header() {
      <a className="px-3 text-light text-decoration-none" href="/home">
       Home
      </a>
-     <a className="px-3 text-light text-decoration-none" href="/dashboard">
+     <a className="px-3 text-light text-decoration-none" href="/me">
       Dashboard
      </a>
      <a className="px-3 text-light text-decoration-none" href="/jobs">
@@ -49,7 +49,7 @@ function Header() {
     <div>
      {Auth.loggedIn() ? (
       <>
-        <Link className="text-light m-2 text-decoration-none" to="/dashboard">
+        <Link className="text-light m-2 text-decoration-none" to="/me">
           Welocome {Auth.getProfile().data.username}!
         </Link>
         <button className="btn btn-success text-light m-2" onClick={logout}>
