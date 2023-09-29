@@ -1,43 +1,39 @@
-import React from 'react';
-import { ContactForm } from './ContactForm';
+import React from "react";
+import { ContactForm } from "./ContactForm";
 import twoSmiles from "../styles/images/man_and_woman_smiling_at_camera.jpg";
 
-// // Styling for the component/page. //
-// const contactContainer = {
-//   display: 'flex',
-//   flexDirection: 'row',
-//   justifyContent: 'center',
-//   alignItems: 'center',
-//   padding: '20px',
-// };
-
-const imageSection = {
-  flex: '1',
-  padding: '20px',
+// Styling for the component/page. //
+const contactContainer = {
+ display: "flex",
+ flexDirection: "row",
+ justifyContent: "center",
+ alignItems: "center",
+ padding: "20px",
 };
 
-// const contactFormSection = {
-//   flex: '1',
-//   padding: '20px',
-// };
+const contactImageStyle = {
+ flex: "1",
+ padding: "20px",
+ width: "250px",
+};
+
+const contactFormSection = {};
 
 const Contact = () => {
-  
-  return (
-    <>
-        <div>
-      <h1>Contact Us</h1>
-      <ContactForm />
+ return (
+  <>
+   <section style={contactContainer}>
+    <div style={contactFormSection}>
+     <h4>Contact Us</h4>
+     <ContactForm />
     </div>
 
-        <section style={imageSection}>
-          {/* Add your image here */}
-          
-          <img src={twoSmiles} alt="Git Icon" width="250px" />
-        </section>
-      
-    </>
-  );
+    <div>
+     <img src={twoSmiles} alt="Git Icon" style={contactImageStyle} />
+    </div>
+   </section>
+  </>
+ );
 };
 
 export default Contact;
