@@ -11,15 +11,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.0",
     "express": "^4.17.2",
-    "prettier": "^3.0.3",
     "graphql": "^16.3.0",
+    "graphql-upload": "^16.0.2",
+    "prettier": "^3.0.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^7.0.2"
   },
+  
   "devDependencies": {
     "nodemon": "^2.0.3"
   }

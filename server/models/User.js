@@ -1,7 +1,10 @@
 // user model
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
-const bioSchema = require('./Bio');
+// const { Schema, model } = require('mongoose');
+// const bcrypt = require('bcrypt');
+// const bioSchema = require('./Bio');
+import { Schema, model } from 'mongoose';
+import bcrypt from 'bcrypt';
+import bioSchema from './Bio.js';
 
 const userSchema = new Schema({
   name: {
@@ -28,7 +31,7 @@ const userSchema = new Schema({
     minlength: 5,
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: true,
     minlength: 10,
   },
@@ -71,4 +74,4 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
-module.exports = User;
+export default User;

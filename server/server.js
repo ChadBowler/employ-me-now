@@ -1,14 +1,24 @@
 // server
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
-const path = require('path');
+// const express = require('express');
+import express from 'express';
+// const { Express } = pkg;
+import graphqlUploadExpress  from 'graphql-upload/graphqlUploadExpress.mjs';
+import { ApolloServer } from 'apollo-server-express';
+import path from 'path';
+// const { graphqlUploadExpress } = require('graphql-upload');
+// const { ApolloServer } = require('apollo-server-express');
+// const path = require('path');
 // const { authMiddleware } = require('./utils/auth');
 
-const { typeDefs, resolvers } = require('./schemas');
-const db = require('./config/connection');
+// const { typeDefs, resolvers } = require('./schemas');
+import { typeDefs, resolvers } from './schemas/index.js';
+
+// const db = require('./config/connection');
+import db from './config/connection.js';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+app.use(graphqlUploadExpress());
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,

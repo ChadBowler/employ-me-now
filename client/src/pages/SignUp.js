@@ -56,6 +56,7 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+      // If name is "phoneNumber," parse the value as an integer
     setFormState({
       ...formState,
       [name]: value,
@@ -84,7 +85,7 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(formState);
     const errors = {};
     Object.keys(formState).forEach((key) => {
       if (!formState[key]) {
@@ -200,7 +201,6 @@ const Signup = () => {
                   style={{ ...btnPrimaryStyles, cursor: 'pointer' }}
                   type="submit"
                   onClick={() => {
-                    handleFormSubmit();
                     <Navigate to="/dashboard" />;
                   }}
                 >

@@ -1,5 +1,6 @@
 //job post model
-const { Schema, model } = require('mongoose');
+// const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const jobPostSchema = new Schema({
   title: {
@@ -37,4 +38,4 @@ const jobPostSchema = new Schema({
 
 const JobPost = model('JobPost', jobPostSchema);
 
-module.exports = JobPost;
+export default JobPost;

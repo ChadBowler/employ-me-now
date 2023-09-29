@@ -1,12 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 // import logo from "../styles/images/"
+import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 const headerContainerStyle = {
 	display: 'flex',
 	justifyContent: 'space-between',
 	alignItems: 'center',
-	background: '#f0f0f0', // Adjust background color as needed
+	background: '#1F5014', // Adjust background color as needed
 	padding: '10px 20px',
 };
 
@@ -20,38 +22,50 @@ const navStyle = {
 };
 
 function Header() {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
  return (
   <>
    <div style={headerContainerStyle}>
-    <p>LOGO</p>
+    <p className="text-light">LOGO</p>
     {/* <img src={logo} alt="Employ Me Now Logo"/> */}
-    <header style={headerStyle}>
-     <h1>Header</h1>
-    </header>
     <nav className="px-3" style={navStyle}>
-     <a className="px-3" href="/home">
+     <a className="px-3 text-light text-decoration-none" href="/home">
       Home
      </a>
-     <a className="px-3" href="/dashboard">
+     <a className="px-3 text-light text-decoration-none" href="/dashboard">
       Dashboard
      </a>
-     <a className="px-3" href="/jobs">
+     <a className="px-3 text-light text-decoration-none" href="/jobs">
       Jobs
      </a>
-     <a className="px-3" href="/contact">
+     <a className="px-3 text-light text-decoration-none" href="/contact">
       Contact
      </a>
     </nav>
     <div>
-     <div>
-      <a className="px-5" href="/signup">
-       SIGN UP
-      </a>
-     </div>
-     <a className="px-5" href="/login">
-      LOG IN
-     </a>
+     {Auth.loggedIn() ? (
+      <>
+        <Link className="text-light m-2 text-decoration-none" to="/dashboard">
+          Welocome {Auth.getProfile().data.username}!
+        </Link>
+        <button className="btn btn-success text-light m-2" onClick={logout}>
+          Logout
+        </button>
+      </> 
+      ) :( 
+      <>
+      <Link className="btn btn-secondary text-light m-2" to="/signup">
+        SIGN UP
+      </Link>
+      <Link className="btn btn-success text-light m-2" to="/login">
+        LOG IN
+      </Link>
+      </>
+      )}
     </div>
    </div>
   </>

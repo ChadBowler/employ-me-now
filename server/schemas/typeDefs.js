@@ -1,14 +1,17 @@
 //typeDefs
-const { gql } = require('apollo-server-express');
+// const { gql } = require('apollo-server-express');
+import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
+scalar Upload
+
 type User {
   _id: ID
   name: String
   username: String
   email: String
   password: String
-  phoneNumber: Int
+  phoneNumber: String
   bio: [Bio]!
   resume: String
   jobsAppliedTo: [JobPost]!
@@ -55,14 +58,20 @@ type Query {
   jobPost(_id: ID!): JobPost
 }
 
+type File {
+  filename: String!
+  path: String!
+}
+
 type Mutation {
-  addUser(name: String!, username: String!, email: String!, password: String!, phoneNumber: Int!): Auth
+  addUser(name: String!, username: String!, email: String!, password: String!, phoneNumber: String!): Auth
   login(email: String!, password: String!): Auth
   postJob(userId: ID!, title: String!, company: String!, salary: Int!, description: String!): JobPost
   applyToJob(userId: ID!, resume: String!, jobId: ID!): Application
-  updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: String!): User
+  updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: Upload): User
   acceptApplication(applicationId: ID!, accepted: Boolean!): Application
+  uploadResume(file: Upload!): File!
 }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;
