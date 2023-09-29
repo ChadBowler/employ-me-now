@@ -4,21 +4,13 @@ import JobPosts from '../components/JobPosts';
 import { useQuery } from '@apollo/client';
 import { QUERY_JOB_POSTS } from '../utils/queries';
 
-const someStyle = {
-	// display: 'grid',
-	// gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', // Resizable grid columns
-	// gap: '16px', // Gap between grid items
-	// maxWidth: '1200px', // Limit the maximum width of the grid
-	// margin: '0 auto',
-	// padding: '20px',
-};
-
 const buttonStyle = {
 	color: 'white',
 	backgroundColor: '#1F5014',
 	border: 'none',
 	width: '150px',
 	height: '50px',
+	fontWeight: 'bold',
 };
 
 const Jobs = () => {
@@ -32,7 +24,7 @@ const Jobs = () => {
 					<button style={buttonStyle}>Post New Job</button>
 				</div>
 			</div>
-			<div style={someStyle}>
+			<div>
 				{loading ? (
 					<div>Loading...</div>
 				) : (
