@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import styles from './ContactForm.module.scss';
 
 // Styles go here
 
@@ -47,7 +48,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
+    <form className={`${styles.formBox}`} ref={form} onSubmit={sendEmail}>
       <label>
         Name
         <input type="text" name="user_name" required />

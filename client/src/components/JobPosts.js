@@ -1,9 +1,10 @@
 import React from 'react';
 
 const postSize = {
-	height: '300px',
-	width: '200px',
+	height: '10rem',
+	width: '100%',
 	border: '1rem solid #1F5014',
+	marginTop: '1rem',
 };
 
 const buttonStyle = {
@@ -12,16 +13,7 @@ const buttonStyle = {
 	border: 'none',
 	width: '150px',
 	height: '50px',
-};
-
-const jobTitleStyle = {
-	textAlign: 'center',
-	marginTop: '1rem',
-};
-
-const jobDescriptionStyle = {
-	textAlign: 'center',
-	marginTop: '1rem',
+	fontWeight: 'bold',
 };
 
 const JobPosts = ({ jobPosts }) => {
@@ -29,20 +21,21 @@ const JobPosts = ({ jobPosts }) => {
 		return <h3 className='text-white text-center'>No Jobs Posted</h3>;
 	}
 	return (
-		<div className='d-flex flex-row justify-content-center mx-4 gap-4'>
+		<div className='d-flex flex-column mx-4'>
 			{jobPosts &&
 				jobPosts.map((jobPost) => (
-					<div key={jobPost._id}>
+					<div
+						key={jobPost._id}
+						className='d-flex justify-content-center'
+					>
 						<div
 							style={postSize}
-							className='text-white'
+							className='text-white d-flex justify-content-around align-items-center'
 						>
-							<h5 style={jobTitleStyle}>{jobPost.title}</h5>
-							<p style={jobDescriptionStyle}>
+							<h3>{jobPost.title}</h3>
+							<p className='d-none d-lg-block'>
 								{jobPost.description}
 							</p>
-						</div>
-						<div className='d-flex justify-content-center mt-5'>
 							<button style={buttonStyle}>See This Job</button>
 						</div>
 					</div>
