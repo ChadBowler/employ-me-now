@@ -25,10 +25,7 @@ const Jobs = () => {
 	const { loading, data } = useQuery(QUERY_JOB_POSTS);
 	const jobPosts = data?.jobPosts || [];
 	return (
-		<div
-			className='min-vh-100 bg-dark
-    '
-		>
+		<div className='min-vh-100 bg-dark'>
 			<div className='d-flex justify-content-between'>
 				<h1 className='text-left ms-5 ps-5 text-white py-5'>Jobs:</h1>
 				<div className='me-5 pe-5 py-5'>
