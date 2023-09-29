@@ -45,7 +45,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh bg-primary-black">
+        <div className="flex-column justify-flex-start min-100-vh bg-dark">
           <Header />
           
           <div className="container">

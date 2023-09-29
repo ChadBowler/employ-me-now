@@ -38,7 +38,7 @@ const LogIn = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     try {
       // retrieve data from the login mutation using the user's input email and password
       const { data } = await login({
@@ -59,7 +59,7 @@ const LogIn = () => {
 
   return (
     <>
-    <div style={someStyle}>
+    <div className="text-white" style={someStyle}>
       <h1 className="text-center">Log In</h1>
       {data ? (
         <p>

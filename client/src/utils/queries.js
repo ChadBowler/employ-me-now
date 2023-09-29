@@ -15,6 +15,12 @@ query user($username: String!) {
       location
       id
     }
+		applications {
+			_id
+			resume
+			dateApplied
+			accepted
+		}
     _id
   }
 }
@@ -81,6 +87,12 @@ query me {
     name
     phoneNumber
     resume
+		applications {
+			_id
+			resume
+			dateApplied
+			accepted
+		}
   }
 }
 `;

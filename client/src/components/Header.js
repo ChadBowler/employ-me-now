@@ -21,6 +21,12 @@ const navStyle = {
 	alignItems: 'center',
 };
 
+const buttonStyle = {
+  background: "#1F5014",
+  borderRadius: "10px",
+  color: "white",
+};
+
 function Header() {
   const logout = (event) => {
     event.preventDefault();
@@ -50,7 +56,7 @@ function Header() {
      {Auth.loggedIn() ? (
       <>
         <Link className="text-light m-2 text-decoration-none" to="/me">
-          Welocome {Auth.getProfile().data.username}!
+          Welocome, {Auth.getProfile().data.username}
         </Link>
         <button className="btn btn-success text-light m-2" onClick={logout}>
           Logout
@@ -58,10 +64,10 @@ function Header() {
       </> 
       ) :( 
       <>
-      <Link className="btn btn-secondary text-light m-2" to="/signup">
+      <Link className="btn btn-outline-secondary text-light m-2" to="/signup">
         SIGN UP
       </Link>
-      <Link className="btn btn-success text-light m-2" to="/login">
+      <Link className="btn btn-success text-light m-2" style={buttonStyle} to="/login">
         LOG IN
       </Link>
       </>
