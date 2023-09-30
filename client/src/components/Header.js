@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-// import logo from "../styles/images/"
+import logo from "../styles/logo/employ-me-now-low-resolution-logo-color-on-transparent-background.png"
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
@@ -11,6 +11,10 @@ const headerContainerStyle = {
 	background: '#1F5014', // Adjust background color as needed
 	padding: '10px 20px',
 };
+const logoStyle = {
+  height: '75px',
+  width: '200px'
+}
 
 const headerStyle = {
 	margin: 0,
@@ -36,8 +40,8 @@ function Header() {
  return (
   <>
    <div style={headerContainerStyle}>
-    <p className="text-light">LOGO</p>
-    {/* <img src={logo} alt="Employ Me Now Logo"/> */}
+    {/* <p className="text-light">LOGO</p> */}
+    <img src={logo} alt="Employ Me Now Logo" style={logoStyle} />
     <nav className="px-3" style={navStyle}>
      <a className="px-3 text-light text-decoration-none" href="/home">
       Home

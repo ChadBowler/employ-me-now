@@ -16,15 +16,20 @@ const contactImageStyle = {
  padding: "20px",
  width: "250px",
 };
+const contactHeaderStyle = {
+  color: "#F6F6F6"
+}
 
-const contactFormSection = {};
+const contactFormSection = {
+    minWidth: "300px"
+};
 
 const Contact = () => {
  return (
   <>
    <section style={contactContainer}>
     <div style={contactFormSection}>
-     <h4>Contact Us</h4>
+     <h4 style={contactHeaderStyle}>Contact Us</h4>
      <ContactForm />
     </div>
 
