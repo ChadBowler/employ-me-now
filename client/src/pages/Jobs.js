@@ -1,5 +1,6 @@
 import React from 'react';
 import JobPosts from '../components/JobPosts';
+import PostJob from '../components/PostJob/PostJob'
 
 import { useQuery } from '@apollo/client';
 import { QUERY_JOB_POSTS } from '../utils/queries';

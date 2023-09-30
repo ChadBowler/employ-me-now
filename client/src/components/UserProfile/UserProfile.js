@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useQuery, gql, useApolloClient } from "@apollo/client";
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 import Modal from 'react-modal';
 import styles from './UserProfile.module.scss';
-import EditProfileForm from "./EditProfileForm";
+import EditProfileForm from "../EditProfileForm";
 
 //Hide background elements for accessibility
 Modal.setAppElement('#root');

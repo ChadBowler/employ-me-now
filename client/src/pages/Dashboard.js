@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import styles from './Dashboard.module.scss';
-import UserProfile from "../components/UserProfile";
+import UserProfile from "../components/UserProfile/UserProfile";
 
 const someStyle = {
  // add styles
@@ -22,9 +22,9 @@ const Dashboard = () => {
  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
   variables: { username: userParam },
  });
- console.log(userParam);
+//  console.log(userParam);
  const user = data?.me || data?.user || {};
- console.log(user);
+//  console.log(user);
   // navigate to personal profile page if username is yours
  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   return <Navigate to="/me" />;

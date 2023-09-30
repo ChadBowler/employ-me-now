@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactForm } from "./ContactForm";
+import { ContactForm } from "../components/ContactForm/ContactForm";
 import twoSmiles from "../styles/images/man_and_woman_smiling_at_camera.jpg";
 
 // Styling for the component/page. //
