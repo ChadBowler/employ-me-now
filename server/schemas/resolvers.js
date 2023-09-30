@@ -117,7 +117,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           {_id: context.user._id},
-          { $addToSet: { bio: {skills, location, userDescription} }, resume: resume },
+          { $set: { bio: {skills, location, userDescription} }, resume: resume },
           { new: true }
         );
         return updatedUser;

@@ -3,11 +3,11 @@ import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
-
-// import UserProfile from "../components/UserProfile";
+import styles from './Dashboard.module.scss';
+import UserProfile from "../components/UserProfile";
 
 const someStyle = {
- //add styles
+ // add styles
 };
 
 const buttonStyle = {
@@ -25,56 +25,46 @@ const Dashboard = () => {
  console.log(userParam);
  const user = data?.me || data?.user || {};
  console.log(user);
- // navigate to personal profile page if username is yours
+  // navigate to personal profile page if username is yours
  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   return <Navigate to="/me" />;
  }
 
+ // Check if user data is available
  if (loading) {
   return <div>Loading...</div>;
  }
 
  if (!user?.username) {
+  // Handle the case when user data is not available
   return (
-   <h4>
-    You need to be logged in to see this. Use the navigation links above to sign
-    up or log in!
-   </h4>
+    <div className={styles.main}>
+      <div style={someStyle} className="text-white mt-4">
+        <h1>User Profile</h1>
+        <p>You need to be logged in to see this. Use the navigation links above to sign up or log in!</p>
+      </div>
+    </div>
   );
  }
- 
- // format skills as an array
- const skillsArray = user.bio[0].skills.split(",");
- console.log(skillsArray);
- return (
-  <>
-   <div style={someStyle} className="text-white mt-4">
-     <h1>User Profile</h1>
-     {/* react logic for pulling user info - name, &c. */}
-     {/* <UserProfile /> */}
-    <div className="container">
-    <div className="row">
-      <div className="ms-4 col-md-4">
-        <h4 className="mt-4">Name: {user.name}</h4>
-        <div className="ms-2 mt-4">
-          <p>Email: {user.email}</p>
-          <p>Phone: {user.phoneNumber}</p>
-          <p>Skills:</p>
-          <p>{skillsArray.map((skill) => {
-            return <li>{skill}</li>;
-          })}</p>
-          <p>About Me:</p>
-          <p className="ms-4">{user.bio[0].userDescription}</p>
-        </div>
+
+ if (!user.bio) {
+  // Handle the case when user.bio is not available (no profile information)
+  return (
+    <>
+      <div style={someStyle} className="text-white mt-4">
+        <h1>User Profile</h1>
+        <p>No profile information available for this user.</p>
         <button className="btn btn-success" style={buttonStyle}>Edit Profile</button>
       </div>
-      <div className="ms-4 col-md-6">
-        <h4>Applications</h4>
-        <p>Number of Applications: {user.applications.length}</p>
-        {/* itterate through applications */}
-      </div>
-    </div>
-    </div>
+    </>
+  );
+ }
+
+ // User data is available, and user.bio is available, render the existing content
+ return (
+  <>
+   <div style={someStyle} className={`text-white mt-4 ${styles.main}`}>
+      <UserProfile />
    </div>
   </>
  );

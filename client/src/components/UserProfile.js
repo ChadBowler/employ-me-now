@@ -1,43 +1,77 @@
-import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import React, { useState } from "react";
+import { useQuery, gql, useApolloClient } from "@apollo/client";
+import Auth from "../utils/auth";
+import Modal from 'react-modal';
+import styles from './UserProfile.module.scss';
+import EditProfileForm from "./EditProfileForm";
+
+//Hide background elements for accessibility
+Modal.setAppElement('#root');
 
 const GET_USER_PROFILE = gql`
 query GetUserProfile($username: String!) {
   user(username: $username) {
+    _id
     username
     email
     bio {
-      phoneNumber
       skills
       location
       userDescription
-    }
-    // Add other fields you want to fetch
+    } 
   }
 }
 `;
 
 const UserProfile = () => {
-  const username = "example_username"; 
-  const { loading, error, data } = useQuery(GET_USER_PROFILE, {
+  //Check user authentication
+  const username = Auth.loggedIn() ? Auth.getProfile().data.username : null;
+  const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE, {
     variables: { username },
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error){
+    console.error("GraphQL error:", error.message);
+    return <div>Error: {error.message}</div>;
+  } 
 
   const user = data.user;
+//Button handlers
+  const handleEditProfileClick = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  const handleSaveProfileClick = async () => {
+    refetch();
+  }
 
   return (
     <>
       <div>
         <h1>User Profile: {user.username}</h1>
         <p>Email: {user.email}</p>
-        <p>Phone Number: {user.bio.phoneNumber}</p>
-        <p>Skills: {user.bio.skills}</p>
-        <p>Location: {user.bio.location}</p>
-        <p>User Description: {user.bio.userDescription}</p>
+        {/* <p>Phone Number: {user.bio.phoneNumber}</p> */}
+        <p>Skills: {user.bio[0].skills}</p>
+        <p>Location: {user.bio[0].location}</p>
+        <p>User Description: {user.bio[0].userDescription}</p>
+        <button onClick={handleEditProfileClick}>Edit Profile</button>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Edit Profile Modal"
+        className={`${styles.profileModal}`}
+      >
+       
+        <h2>Edit Profile</h2>
+        <EditProfileForm user={user} onSave={handleSaveProfileClick} onCancel={closeModal} />
+      </Modal>
     </>
   );
 };

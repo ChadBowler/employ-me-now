@@ -1,0 +1,28 @@
+@import '../styles/variables';
+
+button {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    border: 1px solid $tertiary-color;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+button:hover {
+    background-color: $tertiary-color; 
+}
+
+.profileModal {
+    background: $primary-bg;
+    color: $primary-text-color;
+    position: absolute;
+    inset: 120px;
+    border: 1px solid $primary-text-color;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 40px 120px;
+}

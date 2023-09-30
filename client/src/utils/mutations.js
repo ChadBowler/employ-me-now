@@ -23,24 +23,29 @@ export const ADD_USER = gql`
 		}
 	}
 `;
-
 export const UPDATE_PROFILE = gql`
-  mutation updateProfile($userId: ID!, $phoneNumber: String!, $skills: String!, $location: String!, $userDescription: String!, $resume: String!) {
-    updateProfile(userId: $userId, phoneNumber: $phoneNumber, skills: $skills, location: $location, userDescription: $userDescription, resume: $resume) {
-      user {
-        _id
-        username
-        bio {
-		  phoneNumber	
-          skills
-          location
-          userDescription
-        }
-        resume
-      }
-		}
+mutation updateProfile(
+	$userId: ID!
+	$skills: String!
+	$location: String!
+	$userDescription: String!
+  ) {
+	updateProfile(
+	  userId: $userId
+	  skills: $skills
+	  location: $location
+	  userDescription: $userDescription
+	) {
+	  username
+	  email
+	  bio {
+		location
+		skills
+		userDescription
+	  }
 	}
-`;
+  }
+`
 
 export const POST_JOB = gql`
 	mutation postJob(

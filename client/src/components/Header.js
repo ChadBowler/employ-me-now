@@ -10,6 +10,7 @@ const headerContainerStyle = {
 	alignItems: 'center',
 	background: '#1F5014', // Adjust background color as needed
 	padding: '10px 20px',
+  margin: '0'
 };
 const logoStyle = {
   height: '75px',
@@ -40,7 +41,6 @@ function Header() {
  return (
   <>
    <div style={headerContainerStyle}>
-    {/* <p className="text-light">LOGO</p> */}
     <img src={logo} alt="Employ Me Now Logo" style={logoStyle} />
     <nav className="px-3" style={navStyle}>
      <a className="px-3 text-light text-decoration-none" href="/home">

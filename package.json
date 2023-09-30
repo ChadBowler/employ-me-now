@@ -17,10 +17,11 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "react-dropzone": "^14.2.3",
     "apollo-upload-client": "^17.0.0",
     "multer": "^1.4.5-lts.1",
     "prettier": "^3.0.3",
+    "react-dropzone": "^14.2.3",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.16.0"
   }
 }
