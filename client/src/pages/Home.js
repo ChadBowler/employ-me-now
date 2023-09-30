@@ -128,14 +128,14 @@ const Home = () => {
      <div style={heroDiv}>
       <div style={heroText}>
        <h1>Find a Job that fits you!</h1>
-       <p1>
+       <p>
         Welcome to Employ Me Now - Your Gateway to Opportunity! Are you ready to
         take the next step in your career or find the perfect candidate for your
         company? Look no further! Employ Me Now is your one-stop destination for
         job seekers and recruiters alike. Explore thousands of job listings,
         create a standout profile, and connect with top employers. Join us today
         and embark on your journey to professional success!
-       </p1>
+       </p>
       </div>
      </div>
     </section>
@@ -162,7 +162,7 @@ const Home = () => {
       <div style={missionText}>
        <h4>Mission</h4>
        <h5>Empowering Careers, Fulfilling Dreams</h5>
-       <p1>
+       <p>
         Our mission at Employ Me Now is to empower individuals to achieve their
         career aspirations and help businesses find the talent they need to
         thrive. We are dedicated to providing a seamless and transparent
@@ -174,7 +174,7 @@ const Home = () => {
         your journey to professional success! Feel free to customize these
         statements further to align with your specific goals and branding for
         the "Employ Me Now" website.
-       </p1>
+       </p>
       </div>
      </div>
      <div style={{ marginLeft: "20px" }}>

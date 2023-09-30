@@ -1,6 +1,54 @@
 @import '../styles/variables';
 
 .formBox {
-   
-    min-height: 300px;
-}
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    color: $primary-text-color;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  textarea.message {
+    resize: none;
+    min-height: 100px;
+    overflow-y: auto;
+  }
+  
+  input[type="submit"] {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid $tertiary-color;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: $tertiary-color; 
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  div {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  

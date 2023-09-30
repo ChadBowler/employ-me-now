@@ -7,7 +7,6 @@ import Auth from "../utils/auth";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import _variables from "../styles/_variables.scss";
 
 const someStyle = {
   //add styles
