@@ -1,0 +1,34 @@
+@media (min-width: 992px) {
+	.heroDiv {
+		margin-right: 600px;
+	}
+}
+
+@media (max-width: 992px) {
+	.heroDiv {
+		margin-right: 300px;
+	}
+}
+
+@media (max-width: 767px) {
+	.heroDiv {
+		margin-right: auto;
+	}
+	.aboutImage {
+		display: none;
+	}
+	.aboutSection {
+		justify-content: center;
+	}
+
+	.aboutDiv {
+		margin: auto;
+	}
+
+	.missionImage {
+		display: none;
+	}
+	.missionSection {
+		justify-content: center;
+	}
+}
