@@ -71,30 +71,6 @@ const resolvers = {
     },
     // post a job with title, company, salary, and description
     postJob: async (parent, { title, company, salary, description }, context) => {
-      console.log(context.user);
-      // try {
-      //   // Create a new job post
-      //   const jobPost = await JobPost.create({
-      //     title,
-      //     company,
-      //     salary,
-      //     description,
-      //     author: context.user._id, // Use the user's _id to associate the job post
-      //   });
-    
-      //   // Update the user document to include the new job post
-      //   const updatedUser = await User.findByIdAndUpdate(
-      //     context.user._id, // Use the user's _id
-      //     { $push: { postedJobs: jobPost._id } },
-      //     { new: true }
-      //   );
-    
-      //   return jobPost;
-      // } catch (error) {
-      //   // Handle any errors that occur during job post creation or user update
-      //   console.error('Error posting job:', error);
-      //   throw error; // Rethrow the error to handle it in the GraphQL response
-      // }
       if (context.user) {
         const jobPost = await JobPost.create({
           title,

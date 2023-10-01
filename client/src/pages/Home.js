@@ -182,22 +182,22 @@ const Home = () => {
      </div>
     </section>
 
-    <section style={contactSection}>
+    {/* <section style={contactSection}>
      <div>
       <div>
        <h5>We'd Love to Hear from You!</h5>
        <Contact />
       </div>
      </div>
-    </section>
+    </section> */}
 
-    <section style={jobsSection}>
+    {/* <section style={jobsSection}>
      <div>
       <h5>Job Posts</h5>
-      {/* The jobs list should not be clickable unless logged in. */}
+      
       <Jobs />
      </div>
-    </section> 
+    </section>  */}
    </div>
   </>
  );
