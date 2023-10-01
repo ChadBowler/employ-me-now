@@ -5,6 +5,7 @@ import express from 'express';
 import graphqlUploadExpress  from 'graphql-upload/graphqlUploadExpress.mjs';
 import { ApolloServer } from 'apollo-server-express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 // const { graphqlUploadExpress } = require('graphql-upload');
 // const { ApolloServer } = require('apollo-server-express');
 // const path = require('path');
@@ -15,6 +16,9 @@ import { typeDefs, resolvers } from './schemas/index.js';
 
 // const db = require('./config/connection');
 import db from './config/connection.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
