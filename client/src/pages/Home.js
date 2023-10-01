@@ -40,6 +40,7 @@ const heroText = {
 const aboutSection = {
 	display: 'flex',
 	alignItems: 'center',
+	justifyContent: 'space-around',
 	padding: '10px',
 	borderRadius: '10px',
 	border: '1px solid black',
@@ -58,6 +59,7 @@ const aboutText = {
 	padding: '20px',
 	borderRadius: '10px',
 	backgroundColor: 'rgba(255, 255, 255, 0.2)',
+	width: '40vh',
 };
 
 const aboutImageStyle = {
@@ -72,6 +74,7 @@ const missionSection = {
 	alignItems: 'center',
 	padding: '10px',
 	borderRadius: '10px',
+	justifyContent: 'space-around',
 	border: '1px solid black',
 	marginBottom: '20px',
 	backgroundColor: 'bg-dark', // Bootstrap dark background color class
@@ -126,7 +129,10 @@ const Home = () => {
 	return (
 		<>
 			<div>
-				<section style={heroSection}>
+				<section
+					style={heroSection}
+					className='heroSection'
+				>
 					<div
 						// style={heroDiv}
 						className='heroDiv'
@@ -163,7 +169,10 @@ const Home = () => {
 							className='aboutImage'
 						/>
 					</div>
-					<div style={aboutText}>
+					<div
+						style={aboutText}
+						className='aboutText'
+					>
 						<h4>About Us</h4>
 						<h5>Committed to Your Employment Goals</h5>
 						<p>
@@ -186,7 +195,10 @@ const Home = () => {
 						style={missionDiv}
 						className='missionDiv'
 					>
-						<div style={missionText}>
+						<div
+							style={missionText}
+							className='missionText'
+						>
 							<h4>Mission</h4>
 							<h5>Empowering Careers, Fulfilling Dreams</h5>
 							<p>
