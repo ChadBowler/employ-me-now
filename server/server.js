@@ -20,7 +20,7 @@ import db from './config/connection.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(graphqlUploadExpress());
 const server = new ApolloServer({
