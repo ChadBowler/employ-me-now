@@ -14,7 +14,7 @@ const jobPostSchema = new Schema({
     trim: true,
   },
   salary: {
-    type: Number,
+    type: String,
     required: true,
   },
   dateCreated: {

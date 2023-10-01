@@ -1,0 +1,13 @@
+@import '../styles/variables';
+
+.jobsModal {
+    background: $primary-bg;
+    color: $primary-text-color;
+    position: absolute;
+    inset: 120px;
+    border: 1px solid $primary-text-color;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 40px 120px;
+}

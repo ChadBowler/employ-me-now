@@ -1,0 +1,78 @@
+@import '../../styles/variables';
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: $primary-text-color;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    margin: 10px 0;
+  }
+  
+  /* Customize the track (the "filled" part) */
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 30px;
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 30px;
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Style the range slider thumb with a dollar sign image */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; 
+    height: 25px;
+    background: url('../../styles/images/dollar_sign.png') no-repeat center center; /* Specify the path to your image */
+    background-size: cover;
+    background-position: center bottom -3px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 20px; 
+    height: 25px;
+    background: url('../../styles/images/dollar_sign.png') no-repeat center center; /* Specify the path to your image */
+    background-size: cover;
+    background-position: center bottom -3px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Adjust the slider appearance when it's active or focused */
+  input[type="range"]:active,
+  input[type="range"]:focus {
+    opacity: 1;
+  }
+  select {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid $primary-color;
+    border-radius: 5px;
+    background-color: $primary-text-color;
+    color: $secondary-color;
+    cursor: pointer;
+    flex-grow: 1;
+  }
+  
+  select option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: $primary-text-color;
+    color: $secondary-color;
+  }
