@@ -107,7 +107,6 @@ const Signup = () => {
         });
 
         Auth.login(data.addUser.token);
-        return <Navigate to="/me" />;
       } catch (e) {
         console.error(e);
       }
