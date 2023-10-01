@@ -19,7 +19,7 @@ const buttonStyle = {
 };
 
 const Jobs = () => {
-  const { loading, data } = useQuery(QUERY_JOB_POSTS);
+  const { loading, data, refetch } = useQuery(QUERY_JOB_POSTS);
   const jobPosts = data?.jobPosts || [];
    //State to manage modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
