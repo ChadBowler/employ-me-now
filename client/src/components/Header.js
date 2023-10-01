@@ -43,18 +43,18 @@ function Header() {
    <div style={headerContainerStyle}>
     <img src={logo} alt="Employ Me Now Logo" style={logoStyle} />
     <nav className="px-3" style={navStyle}>
-     <a className="px-3 text-light text-decoration-none" href="/home">
+     <Link className="px-3 text-light text-decoration-none" to="/home">
       Home
-     </a>
-     <a className="px-3 text-light text-decoration-none" href="/me">
+     </Link>
+     <Link className="px-3 text-light text-decoration-none" to="/me">
       Dashboard
-     </a>
-     <a className="px-3 text-light text-decoration-none" href="/jobs">
+     </Link>
+     <Link className="px-3 text-light text-decoration-none" to="/jobs">
       Jobs
-     </a>
-     <a className="px-3 text-light text-decoration-none" href="/contact">
+     </Link>
+     <Link className="px-3 text-light text-decoration-none" to="/contact">
       Contact
-     </a>
+     </Link>
     </nav>
     <div>
      {Auth.loggedIn() ? (

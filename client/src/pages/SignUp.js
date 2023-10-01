@@ -85,7 +85,7 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     const errors = {};
     Object.keys(formState).forEach((key) => {
       if (!formState[key]) {
