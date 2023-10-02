@@ -13,7 +13,7 @@ const SingleJob = () => {
     // pass URL parameter
     variables: { id: id },
   });
-  console.log(data);
+  // console.log(data);
   const job = data?.jobPost || {};
 
   if (loading) {
