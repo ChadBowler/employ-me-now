@@ -16,6 +16,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
+import SingleJob from './pages/singleJob';
 
 // Construct our main GraphQL API endpoint
 let httpLink;
@@ -91,6 +92,10 @@ const App = () => {
               <Route 
               path="/login" 
               element={<LogIn />} // takes you to user dashboard after you have logged in
+              />
+              <Route
+              path='/singleJob/:id'
+              element={<SingleJob />}
               />
             </Routes>
           </div>
