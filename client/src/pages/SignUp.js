@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -53,6 +53,7 @@ const Signup = () => {
     phoneNumber: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -200,7 +201,7 @@ const Signup = () => {
                   style={{ ...btnPrimaryStyles, cursor: 'pointer' }}
                   type="submit"
                   onClick={() => {
-                    <Navigate to="/me" />;
+                    navigate('/me');
                   }}
                 >
                   Submit

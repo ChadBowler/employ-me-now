@@ -39,7 +39,6 @@ const UserProfile = () => {
   } 
 
   const user = data.user;
-  console.log(user);
 //Button handlers
   const handleEditProfileClick = () => {
     setIsModalOpen(true);
