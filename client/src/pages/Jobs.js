@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_JOB_POSTS } from '../utils/queries';
 import styles from './Jobs.module.scss';
 
-//Hide background elements for accessibility
+//Hide background elements for accessibility when modal is open
 Modal.setAppElement('#root');
 
 const buttonStyle = {
@@ -31,6 +31,10 @@ const Jobs = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const handleAddJobClick = async () => {
+    refetch();
+    setIsModalOpen(false);
+  }
 
   return (
     <div className='min-vh-100 bg-dark'>
@@ -56,7 +60,7 @@ const Jobs = () => {
         className={`${styles.jobsModal}`}
       >
         <h2>Post a New Job</h2>
-        <PostJob onCancel={closeModal} />
+        <PostJob onAddJobPosting={handleAddJobClick} onCancel={closeModal} />
        
       </Modal>
     </div>

@@ -35,7 +35,7 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     try {
       const { data } = await postJob({
         variables: {
@@ -52,9 +52,9 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
         description: '',
       });
       setSuccessMessage('Job posting added successfully');
-
+      onAddJobPosting();
       // Handle the response data as needed
-      console.log('Job posting added:', data.postJob);
+      // console.log('Job posting added:', data.postJob);
     } catch (error) {
       console.error('Error adding job posting:', error);
     }

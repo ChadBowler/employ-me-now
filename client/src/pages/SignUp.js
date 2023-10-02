@@ -200,9 +200,6 @@ const Signup = () => {
                 <button
                   style={{ ...btnPrimaryStyles, cursor: 'pointer' }}
                   type="submit"
-                  onClick={() => {
-                    navigate('/me');
-                  }}
                 >
                   Submit
                 </button>

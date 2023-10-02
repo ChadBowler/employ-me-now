@@ -48,6 +48,7 @@ const UserProfile = () => {
   };
   const handleSaveProfileClick = async () => {
     refetch();
+    setIsModalOpen(false);
   }
 
   return (

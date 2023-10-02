@@ -56,7 +56,7 @@ const EditProfileForm = ({ user, onSave, onCancel }) => {
             userDescription: editedUser.current.userDescription,
           },
         };
-        onSave(updatedUserData);
+        onSave();
     } catch (error) {
       console.error('Error updating profile:', error.message);
     }
@@ -119,7 +119,7 @@ const EditProfileForm = ({ user, onSave, onCancel }) => {
             />
         </div>
         <div>
-            <button type="submit" onClick={onSave}>Save</button>
+            <button type="submit">Save</button>
             <button type="button" onClick={onCancel}>
             Close
             </button>
