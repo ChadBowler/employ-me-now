@@ -1,0 +1,58 @@
+@media (min-width: 1400px) {
+	.heroDiv {
+		margin-right: 600px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.heroDiv {
+		margin-right: 400px;
+	}
+}
+
+@media (min-width: 992px) {
+	.missionImage {
+		height: 300px !important;
+		width: 500px !important;
+	}
+	.aboutImage {
+		height: 300px !important;
+		width: 500px !important;
+	}
+}
+
+@media (max-width: 992px) {
+	.heroDiv {
+		margin-right: 200px;
+	}
+}
+
+@media (max-width: 767px) {
+	.heroDiv {
+		margin-right: auto;
+	}
+	.aboutImage {
+		display: none !important;
+	}
+	.aboutSection {
+		justify-content: center !important;
+	}
+	.aboutText {
+		width: 50vh !important;
+		justify-content: center !important;
+	}
+	.aboutDiv {
+		margin: none !important;
+	}
+
+	.missionImage {
+		display: none;
+	}
+	.missionSection {
+		justify-content: center;
+	}
+
+	.missionText {
+		width: 60vh !important;
+	}
+}
