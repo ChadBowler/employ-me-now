@@ -1,7 +1,9 @@
 import React from 'react';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+
+import {RiArrowGoBackLine} from 'react-icons/ri';
 
 import { QUERY_SINGLE_JOB_POST } from '../utils/queries'
 
@@ -13,7 +15,7 @@ const SingleJob = () => {
     // pass URL parameter
     variables: { id: id },
   });
-  console.log(data);
+  // console.log(data);
   const job = data?.jobPost || {};
 
   if (loading) {
@@ -22,6 +24,7 @@ const SingleJob = () => {
 
   return (
     <>
+      <Link className="text-white" to="/jobs"> <RiArrowGoBackLine />back to my job search</Link>
       <div className='text-white mt-3'>
         <h1>{job.title}</h1>
         <div className='ms-3'>
