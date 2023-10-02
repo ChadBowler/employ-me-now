@@ -62,14 +62,15 @@ export const QUERY_JOB_POSTS = gql`
 `;
 
 export const QUERY_SINGLE_JOB_POST = gql`
-	query GetSingleJobPost($id: ID!) {
-		jobPost(_id: $id) {
-			_id
-			title
-			description
-			company
-		}
-	}
+query JobPost($id: ID!) {
+  jobPost(_id: $id) {
+    title
+    description
+    salary
+    company
+    dateCreated
+  }
+}
 `;
 
 export const QUERY_ME = gql`

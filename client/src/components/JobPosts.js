@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const postSize = {
 	height: '10rem',
@@ -36,7 +37,7 @@ const JobPosts = ({ jobPosts }) => {
 							<p className='d-none d-lg-block'>
 								{jobPost.description}
 							</p>
-							<button style={buttonStyle}>See This Job</button>
+							<Link className="btn" style={buttonStyle} to={`/singleJob/${jobPost._id}`}>See This Job</Link>
 						</div>
 					</div>
 				))}
