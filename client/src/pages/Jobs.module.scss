@@ -1,13 +1,21 @@
 @import '../styles/variables';
 
 .jobsModal {
-    background: $primary-bg;
-    color: $primary-text-color;
-    position: absolute;
-    inset: 120px;
-    border: 1px solid $primary-text-color;
-    overflow: auto;
-    border-radius: 4px;
-    outline: none;
-    padding: 40px 120px;
+	background: $primary-bg;
+	color: $primary-text-color;
+	margin: auto;
+	border: 1px solid $primary-text-color;
+	overflow: auto;
+	border-radius: 4px;
+	outline: none;
+	padding: 40px 120px;
+	width: 100vh;
+}
+
+@media (max-width: 767px) {
+	.jobsModal {
+		width: 70vh;
+		inset: 0;
+		margin: auto;
+	}
 }

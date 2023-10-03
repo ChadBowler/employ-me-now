@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { useQuery, gql, useApolloClient } from "@apollo/client";
-import Auth from "../../utils/auth";
+import React, { useState } from 'react';
+import { useQuery, gql, useApolloClient } from '@apollo/client';
+import Auth from '../../utils/auth';
 import Modal from 'react-modal';
 import styles from './UserProfile.module.scss';
+
 import EditProfileForm from "../EditProfileForm";
 import { useMutation } from '@apollo/client';
 import { redirect } from "react-router-dom";
@@ -10,10 +11,11 @@ import { redirect } from "react-router-dom";
 import {AiFillDelete} from "react-icons/ai";
 import { DELETE_JOB_POST } from "../../utils/mutations";
 
-//Hide background elements for accessibility
+//Hide background elements for accessibility while modal is open
 Modal.setAppElement('#root');
 
 const GET_USER_PROFILE = gql`
+
 query GetUserProfile($username: String!) {
   user(username: $username) {
     _id
@@ -53,7 +55,8 @@ const UserProfile = () => {
     variables: { username },
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   if (loading) return <div>Loading...</div>;
   if (error){
@@ -118,19 +121,21 @@ const UserProfile = () => {
           <p>No jobs posted.</p>
         )}
 
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Edit Profile Modal"
-        className={`${styles.profileModal}`}
-      >
-       
-        <h2>Edit Profile</h2>
-        <EditProfileForm user={user} onSave={handleSaveProfileClick} onCancel={closeModal} />
-      </Modal>
-    </>
-  );
+			<Modal
+				isOpen={isModalOpen}
+				onRequestClose={closeModal}
+				contentLabel='Edit Profile Modal'
+				className={`${styles.profileModal}`}
+			>
+				<h2>Edit Profile</h2>
+				<EditProfileForm
+					user={user}
+					onSave={handleSaveProfileClick}
+					onCancel={closeModal}
+				/>
+			</Modal>
+		</>
+	);
 };
 
 export default UserProfile;

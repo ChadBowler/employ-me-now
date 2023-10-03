@@ -1,22 +1,14 @@
 // server
-// const express = require('express');
 import express from 'express';
-// const { Express } = pkg;
 import graphqlUploadExpress  from 'graphql-upload/graphqlUploadExpress.mjs';
 import { ApolloServer } from 'apollo-server-express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-// const { graphqlUploadExpress } = require('graphql-upload');
-// const { ApolloServer } = require('apollo-server-express');
-// const path = require('path');
 import { authMiddleware } from './utils/auth.js';
-
-// const { typeDefs, resolvers } = require('./schemas');
 import { typeDefs, resolvers } from './schemas/index.js';
-
-// const db = require('./config/connection');
 import db from './config/connection.js';
 
+//Set __dirname for ES6
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -36,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
