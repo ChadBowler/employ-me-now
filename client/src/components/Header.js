@@ -133,7 +133,7 @@ function Header() {
 										className='text-light m-2 text-decoration-none'
 										to='/me'
 									>
-										Welocome,{' '}
+										Welcome,{' '}
 										{Auth.getProfile().data.username}
 									</Link>
 									<button
