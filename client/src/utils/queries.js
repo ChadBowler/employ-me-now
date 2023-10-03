@@ -22,6 +22,14 @@ query user($username: String!) {
 			accepted
 		}
     _id
+    postedJobs {
+      title
+      salary
+      description
+      dateCreated
+      company
+      _id
+    }
   }
 }
 `;
@@ -94,6 +102,14 @@ query me {
 			dateApplied
 			accepted
 		}
+    postedJobs {
+      title
+      salary
+      description
+      dateCreated
+      company
+      _id
+    }
   }
 }
 `;

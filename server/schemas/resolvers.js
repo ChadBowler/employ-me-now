@@ -95,16 +95,18 @@ const resolvers = {
         const jobPost = await JobPost.findOneAndDelete({
           _id: jobId,
         });
-        await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          // {_id: userId},
-          { $pull: { postedJobs: jobPost._id } },
-          { new: true }
-        );
-
-        return jobPost;
+        if (jobPost) {
+          await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $pull: { postedJobs: jobPost._id } },
+            { new: true }
+          );
+        } else {
+          throw new Error('Job post not found.');
+        }
+      } else {
+        throw new AuthenticationError('You need to be logged in!');
       }
-      throw new AuthenticationError('You need to be logged in!');
     },
     // apply to a job
     applyToJob: async (parent, { resume, jobId }, context) => {
