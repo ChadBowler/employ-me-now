@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+	.contactImage {
+		display: none;
+	}
+	.contactContainer {
+		justify-content: center;
+	}
+}
