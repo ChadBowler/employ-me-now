@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import styles from './UserProfile.module.scss';
 import EditProfileForm from "../EditProfileForm";
 
-//Hide background elements for accessibility
+//Hide background elements for accessibility while modal is open
 Modal.setAppElement('#root');
 
 const GET_USER_PROFILE = gql`
