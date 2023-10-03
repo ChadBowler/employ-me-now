@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Auth from '../utils/auth';
 import useMediaQuery from '../hooks/useMediaQuery';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import styles from './Header.module.scss';
 
 const headerContainerStyle = {
 	display: 'flex',
@@ -170,7 +171,7 @@ function Header() {
 								className='text-light m-2 text-decoration-none'
 								to='/me'
 							>
-								Welocome, {Auth.getProfile().data.username}
+								Welcome, {Auth.getProfile().data.username}
 							</Link>
 							<button
 								className='btn btn-success text-light m-2'
