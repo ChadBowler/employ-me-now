@@ -58,33 +58,13 @@ mutation postJob($userId: ID!, $title: String!, $company: String!, $salary: Stri
   }
 `;
 
-// export const POST_JOB = gql`
-// 	mutation postJob(
-// 		$userId: ID!
-// 		$title: String!
-// 		$company: String!
-// 		$salary: String!
-// 		$description: String!
-// 	) {
-// 		postJob(
-// 			userId: $userId
-// 			title: $title
-// 			company: $company
-// 			salary: $salary
-// 			description: $description
-// 		) {
-// 			_id
-// 			title
-// 			company
-// 			salary
-// 			description
-// 			author {
-// 				_id
-// 				username
-// 			}
-// 		}
-// 	}
-// `;
+export const DELETE_JOB_POST = gql`
+mutation deleteJobPost($jobId: ID!) {
+  deleteJobPost(jobId: $jobId) {
+    _id
+  }
+}
+`;
 
 export const APPLY_TO_JOB = gql`
   mutation applyToJob($userId: ID!

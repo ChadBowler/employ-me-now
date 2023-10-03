@@ -71,6 +71,7 @@ type Mutation {
   updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: Upload): User
   acceptApplication(applicationId: ID!, accepted: Boolean!): Application
   uploadResume(file: Upload!): File!
+  deleteJobPost(jobId: ID!): JobPost
 }
 `;
 
