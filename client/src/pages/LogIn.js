@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
@@ -24,7 +24,7 @@ const buttonStyle = {
 const LogIn = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
-
+  const navigate = useNavigate();
   // function to update the state of the form as input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,6 +45,7 @@ const LogIn = () => {
       });
       // console.log(data);
       Auth.login(data.login.token);
+      navigate('/me');
     } catch (e) {
       console.error(e);
     }

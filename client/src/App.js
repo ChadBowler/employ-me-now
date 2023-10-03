@@ -16,11 +16,20 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
+import SingleJob from './pages/singleJob';
 
 // Construct our main GraphQL API endpoint
-const httpLink = createHttpLink({
-	uri: 'http://localhost:3001/graphql',
-});
+let httpLink;
+if (process.env.NODE_ENV === 'production') {
+	httpLink = createHttpLink({
+    uri: '/graphql',
+  });
+} else {
+  httpLink = createHttpLink({
+    uri: 'http://localhost:3001/graphql',
+  });
+}
+
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
@@ -83,6 +92,10 @@ const App = () => {
               <Route 
               path="/login" 
               element={<LogIn />} // takes you to user dashboard after you have logged in
+              />
+              <Route
+              path='/singleJob/:id'
+              element={<SingleJob />}
               />
             </Routes>
           </div>

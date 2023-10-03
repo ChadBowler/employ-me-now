@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from '../styles/logo/employ-me-now-low-resolution-logo-color-on-transparent-background.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Auth from '../utils/auth';
 import useMediaQuery from '../hooks/useMediaQuery';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -52,30 +52,30 @@ function Header() {
 						className='px-3'
 						style={navStyle}
 					>
-						<a
+						<NavLink
 							className='px-3 text-light text-decoration-none'
-							href='/home'
+							to='/home'
 						>
 							Home
-						</a>
-						<a
+						</NavLink>
+						<NavLink
 							className='px-3 text-light text-decoration-none'
-							href='/me'
+							to='/me'
 						>
 							Dashboard
-						</a>
-						<a
+						</NavLink>
+						<NavLink
 							className='px-3 text-light text-decoration-none'
-							href='/jobs'
+							to='/jobs'
 						>
 							Jobs
-						</a>
-						<a
+						</NavLink>
+						<NavLink
 							className='px-3 text-light text-decoration-none'
-							href='/contact'
+							to='/contact'
 						>
 							Contact
-						</a>
+						</NavLink>
 					</nav>
 				) : (
 					<button
@@ -102,30 +102,30 @@ function Header() {
 
 						{/* MENU ITEMS */}
 						<div className='d-flex flex-column'>
-							<a
+							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
-								href='/home'
+								to='/home'
 							>
 								Home
-							</a>
-							<a
+							</NavLink>
+							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
-								href='/me'
+								to='/me'
 							>
 								Dashboard
-							</a>
-							<a
+							</NavLink>
+							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
-								href='/jobs'
+								to='/jobs'
 							>
 								Jobs
-							</a>
-							<a
+							</NavLink>
+							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
-								href='/contact'
+								to='/contact'
 							>
 								Contact
-							</a>
+							</NavLink>
 							{Auth.loggedIn() ? (
 								<>
 									<Link
@@ -144,19 +144,19 @@ function Header() {
 								</>
 							) : (
 								<>
-									<a
+									<Link
 										className='btn btn-outline-secondary text-light m-2 mt-4'
-										href='/signup'
+										to='/signup'
 									>
 										SIGN UP
-									</a>
-									<a
+									</Link>
+									<Link
 										className='btn btn-success text-light m-2'
 										style={buttonStyle}
-										href='/login'
+										to='/login'
 									>
 										LOG IN
-									</a>
+									</Link>
 								</>
 							)}
 						</div>
@@ -200,6 +200,7 @@ function Header() {
 			</div>
 		</>
 	);
+
 }
 
 export default Header;

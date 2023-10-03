@@ -48,6 +48,7 @@ const UserProfile = () => {
   };
   const handleSaveProfileClick = async () => {
     refetch();
+    setIsModalOpen(false);
   }
 
   return (
@@ -56,9 +57,15 @@ const UserProfile = () => {
         <h1>User Profile: {user.username}</h1>
         <p>Email: {user.email}</p>
         {/* <p>Phone Number: {user.bio.phoneNumber}</p> */}
-        <p>Skills: {user.bio[0].skills}</p>
-        <p>Location: {user.bio[0].location}</p>
-        <p>User Description: {user.bio[0].userDescription}</p>
+        {user.bio.length > 0 ? (
+          <>
+            <p>Skills: {user.bio[0].skills}</p>
+            <p>Location: {user.bio[0].location}</p>
+            <p>User Description: {user.bio[0].userDescription}</p>
+          </>
+        ) : (
+          <p>No bio information available.</p>
+        )}
         <button onClick={handleEditProfileClick}>Edit Profile</button>
       </div>
 
