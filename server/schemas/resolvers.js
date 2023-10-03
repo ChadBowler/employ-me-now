@@ -90,6 +90,24 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    deleteJobPost: async (parent, { jobId }, context) => {
+      if (context.user) {
+        const jobPost = await JobPost.findOneAndDelete({
+          _id: jobId,
+        });
+        if (jobPost) {
+          await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $pull: { postedJobs: jobPost._id } },
+            { new: true }
+          );
+        } else {
+          throw new Error('Job post not found.');
+        }
+      } else {
+        throw new AuthenticationError('You need to be logged in!');
+      }
+    },
     // apply to a job
     applyToJob: async (parent, { resume, jobId }, context) => {
       if (context.user) {
