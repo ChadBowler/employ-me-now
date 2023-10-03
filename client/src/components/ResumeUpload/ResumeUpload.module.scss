@@ -1,0 +1,27 @@
+/* ResumeUpload.module.scss */
+@import '../../styles/variables';
+
+.dropBox {
+    border: 2px dashed #ccc; /* Border style for the drop zone */
+    padding: 20px;
+    text-align: center;
+    color: $secondary-color;
+    font-size: 1.25rem;
+    cursor: pointer;
+    background-color: $primary-text-color; /* Background color for the drop zone */
+    
+    width: 30%;
+    min-height: 150px;
+  }
+  
+  .dropBox p {
+    margin: 0;
+  }
+  
+  .dropBox:hover {
+    border-color: #007bff; /* Border color on hover */
+    background-color: white; /* Background color on hover */
+  }
+  .selectedFile {
+    font-size: 1.25rem;
+  }

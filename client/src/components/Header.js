@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Auth from '../utils/auth';
 import useMediaQuery from '../hooks/useMediaQuery';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import styles from './Header.module.scss';
 
 const headerContainerStyle = {
 	display: 'flex',
