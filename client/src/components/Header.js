@@ -106,34 +106,41 @@ function Header() {
 							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
 								to='/home'
+								onClick={() => setIsMenuToggled(!isMenuToggled)}
 							>
 								Home
 							</NavLink>
 							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
 								to='/me'
+								onClick={() => setIsMenuToggled(!isMenuToggled)}
 							>
 								Dashboard
 							</NavLink>
 							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
 								to='/jobs'
+								onClick={() => setIsMenuToggled(!isMenuToggled)}
 							>
 								Jobs
 							</NavLink>
 							<NavLink
 								className='px-3 text-light text-center fs-4 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'
 								to='/contact'
+								onClick={() => setIsMenuToggled(!isMenuToggled)}
 							>
 								Contact
 							</NavLink>
 							{Auth.loggedIn() ? (
 								<>
 									<Link
-										className='text-light m-2 text-decoration-none'
+										className='text-light m-3 text-decoration-none text-center fw-bold'
 										to='/me'
+										onClick={() =>
+											setIsMenuToggled(!isMenuToggled)
+										}
 									>
-										Welocome,{' '}
+										Welcome,{' '}
 										{Auth.getProfile().data.username}
 									</Link>
 									<button
@@ -148,6 +155,9 @@ function Header() {
 									<Link
 										className='btn btn-outline-secondary text-light m-2 mt-4'
 										to='/signup'
+										onClick={() =>
+											setIsMenuToggled(!isMenuToggled)
+										}
 									>
 										SIGN UP
 									</Link>
@@ -155,6 +165,9 @@ function Header() {
 										className='btn btn-success text-light m-2'
 										style={buttonStyle}
 										to='/login'
+										onClick={() =>
+											setIsMenuToggled(!isMenuToggled)
+										}
 									>
 										LOG IN
 									</Link>
@@ -164,7 +177,7 @@ function Header() {
 					</div>
 				)}
 
-				<div className='d-none d-md-flex'>
+				<div className='d-none d-md-flex align-items-center'>
 					{Auth.loggedIn() ? (
 						<>
 							<Link
@@ -201,7 +214,6 @@ function Header() {
 			</div>
 		</>
 	);
-
 }
 
 export default Header;
