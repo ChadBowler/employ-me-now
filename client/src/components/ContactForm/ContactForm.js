@@ -13,7 +13,7 @@ export const ContactForm = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Resets previous error messages. //
+    // Resets previous error messages.
     setNameError('');
     setEmailError('');
     setMessageError('');

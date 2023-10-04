@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+/* Container styles */
+.footer-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: $primary-bg;
+    color: $primary-text-color;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  
+  /* GitHub icon styles */
+  .git-icon {
+    margin-right: 10px;
+    background-color: $primary-text-color;
+    border-radius: 50%;
+  
+    img {
+      width: 30px;
+      height: auto;
+    }
+  }
+  
+  /* Copyright text styles */
+  .copy-text {
+    font-size: 14px;
+    padding-top: 12px;
+  }
+  

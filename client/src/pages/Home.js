@@ -1,9 +1,5 @@
 import React from 'react';
 
-// import pages/components
-import Contact from '../components/Contact';
-import Jobs from './Jobs';
-
 // import images
 import heroImage from '../styles/images/people_in_a_meeting_at_a_table.jpg';
 import aboutImage from '../styles/images/two_women_planning.jpg';
@@ -24,12 +20,6 @@ const heroSection = {
 	marginBottom: '20px',
 	height: '50vh',
 };
-
-// const heroDiv = {
-// 	display: 'flex',
-// 	alignItems: 'center',
-// 	marginRight: '600px',
-// };
 
 const heroText = {
 	padding: '20px',
@@ -122,7 +112,6 @@ const jobsSection = {
 	borderRadius: '10px',
 	border: '1px solid black',
 	marginBottom: '20px',
-	// height: "50vh"
 };
 
 const Home = () => {
@@ -134,7 +123,7 @@ const Home = () => {
 					className='heroSection'
 				>
 					<div
-						// style={heroDiv}
+						
 						className='heroDiv'
 					>
 						<div style={heroText}>
@@ -230,23 +219,6 @@ const Home = () => {
 						/>
 					</div>
 				</section>
-
-				{/* <section style={contactSection}>
-     <div>
-      <div>
-       <h5>We'd Love to Hear from You!</h5>
-       <Contact />
-      </div>
-     </div>
-    </section> */}
-
-				{/* <section style={jobsSection}>
-     <div>
-      <h5>Job Posts</h5>
-      
-      <Jobs />
-     </div>
-    </section>  */}
 			</div>
 		</>
 	);

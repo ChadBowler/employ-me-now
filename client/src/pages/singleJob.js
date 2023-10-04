@@ -26,11 +26,11 @@ const SingleJob = () => {
   const [applyToJob] = useMutation(APPLY_TO_JOB);
 
   const job = jobData?.jobPost || {};
+  //Check to see if the user has already applied to the job
   useEffect(() => {
     if (userData && userData.user) {
       const appliedJobs = userData.user.jobsAppliedTo;
       const hasApplied = appliedJobs.some(job => job._id === id);
-      // console.log(true);
       setAlreadyApplied(hasApplied);
   
       if (hasApplied) {
@@ -77,14 +77,17 @@ const SingleJob = () => {
             <h5 className={styles.jobDescription}>Job Description</h5>
             <p className='ms-3'>{job.description}</p>
             {alreadyApplied ? (
+              // previously applied
               <div className="alert alert-info" role="alert">
                 You have successfully applied to this job.
               </div>
             ) : applicationStatus === 'success' ? (
+              //successful application submission
               <div className="alert alert-success" role="alert">
                 Application submitted successfully!
               </div>
             ) : applicationStatus === 'error' ? (
+              //error submitting application
               <div className="alert alert-danger" role="alert">
                 Error submitting application. Please try again later.
               </div>

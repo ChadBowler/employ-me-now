@@ -13,7 +13,6 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
   });
 
   const userId = Auth.loggedIn() ? Auth.getProfile().data._id: null;
-  // console.log(Auth.getProfile().data._id);
   const [postJob] = useMutation(POST_JOB);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -36,9 +35,8 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(formData);
     if (formData.salary === '') {
-      setErrorMessage('Please choose a salary.'); // Set error message
+      setErrorMessage('Please choose a salary.');
       return; // Prevent form submission
     }
     try {
@@ -49,7 +47,7 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
         },
       });
 
-      // Reset the form
+      // Reset form
       setFormData({
         title: '',
         company: '',
@@ -59,8 +57,6 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
       setSuccessMessage('Job posting added successfully');
       setErrorMessage(''); //clear error message
       onAddJobPosting();
-      // Handle the response data as needed
-      // console.log('Job posting added:', data.postJob);
     } catch (error) {
       console.error('Error adding job posting:', error);
     }

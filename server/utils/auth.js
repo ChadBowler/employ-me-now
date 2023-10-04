@@ -1,10 +1,7 @@
 //JWT auth
-// const jwt = require('jsonwebtoken');
 import jwt from 'jsonwebtoken';
 const secret = 'mysecretssshhhhhhh';
 const expiration = '2h';
-
-
 
 	function authMiddleware ({ req }) {
 		let token =

@@ -69,12 +69,10 @@ const resolvers = {
           company,
           salary,
           description,
-          //author: userId,
           author: context.user._id,
         });
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          //{_id: userId},
           { $push: { postedJobs: jobPost._id } },
           { new: true }
         );

@@ -1,7 +1,4 @@
 // user model
-// const { Schema, model } = require('mongoose');
-// const bcrypt = require('bcrypt');
-// const bioSchema = require('./Bio');
 import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 import bioSchema from './Bio.js';

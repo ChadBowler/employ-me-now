@@ -1,5 +1,4 @@
 //application model
-// const { Schema, model } = require('mongoose');
 import { Schema, model } from 'mongoose';
 
 const applicationSchema = new Schema({

@@ -62,30 +62,6 @@ export const GET_USER_PROFILE = gql`
   }
 `;
 
-// export const QUERY_JOB_POSTS = gql`
-// 	query getJobPosts {
-// 		jobPosts {
-// 			_id
-// 			title
-// 			company
-// 			salary
-// 			description
-// 			applications {
-// 				_id
-// 				userId
-// 				resume
-// 				dateApplied
-// 				accepted
-// 			}
-// 			author {
-// 				_id
-// 				username
-// 				email
-// 			}
-// 		}
-// 	}
-// `;
-
 export const QUERY_JOB_POSTS = gql`
 	query GetJobPosts {
 		jobPosts {

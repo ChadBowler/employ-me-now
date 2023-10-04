@@ -1,5 +1,4 @@
 // bioSchema
-// const { Schema } = require('mongoose');
 import { Schema } from "mongoose";
 
 const bioSchema = new Schema({

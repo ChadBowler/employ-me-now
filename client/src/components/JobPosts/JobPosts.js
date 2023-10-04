@@ -37,16 +37,6 @@ const jobDescriptionStyle = {
 	fontWeight: 'bold'
 }
 
-
-// const buttonStyle = {
-// 	color: 'white',
-// 	backgroundColor: '#1F5014',
-// 	border: 'none',
-// 	width: '150px',
-// 	height: '50px',
-// 	fontWeight: 'bold',
-// };
-
 const JobPosts = ({ jobPosts }) => {
 	if (!jobPosts) {
 		return <h3 className='text-white text-center'>No Jobs Posted</h3>;
@@ -57,7 +47,6 @@ const JobPosts = ({ jobPosts }) => {
 			<tr>
 			  <th style={headerStyle}>Title</th>
 			  <th style={headerDescriptionStyle}>Description</th>
-			  {/* <th style={headerStyle}>Action</th> */}
 			</tr>
 		  </thead>
 		  <tbody>

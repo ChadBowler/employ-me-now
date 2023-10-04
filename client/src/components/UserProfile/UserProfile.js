@@ -4,11 +4,8 @@ import { useQuery, gql, useApolloClient } from '@apollo/client';
 import Auth from '../../utils/auth';
 import Modal from 'react-modal';
 import styles from './UserProfile.module.scss';
-
 import EditProfileForm from "../EditProfileForm";
 import { useMutation } from '@apollo/client';
-import { redirect } from "react-router-dom";
-
 import {AiFillDelete} from "react-icons/ai";
 import { DELETE_JOB_POST } from "../../utils/mutations";
 import { GET_USER_PROFILE } from '../../utils/queries';

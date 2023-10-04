@@ -3,7 +3,7 @@ import { ContactForm } from '../components/ContactForm/ContactForm';
 import twoSmiles from '../styles/images/man_and_woman_smiling_at_camera.jpg';
 import './Contact.css';
 
-// Styling for the component/page. //
+// Styling for the component/page.
 const contactContainer = {
 	display: 'flex',
 	flexDirection: 'row',

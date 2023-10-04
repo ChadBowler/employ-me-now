@@ -11,7 +11,7 @@ const headerContainerStyle = {
 	display: 'flex',
 	justifyContent: 'space-between',
 	alignItems: 'center',
-	background: '#1F5014', // Adjust background color as needed
+	background: '#1F5014',
 	padding: '10px 20px',
 	margin: '0',
 };

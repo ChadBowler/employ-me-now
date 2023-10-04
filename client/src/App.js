@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Jobs from './pages/Jobs';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import SingleJob from './pages/singleJob';
@@ -99,8 +99,9 @@ const App = () => {
               />
             </Routes>
           </div>
-          <Footer />
+          
         </div>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

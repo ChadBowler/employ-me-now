@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const someStyle = {
-  //add styles
   maxWidth: "400px",
   margin: "0 auto",
   padding: "20px",
@@ -37,13 +36,11 @@ const LogIn = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formState);
     try {
       // retrieve data from the login mutation using the user's input email and password
       const { data } = await login({
         variables: { ...formState },
       });
-      // console.log(data);
       Auth.login(data.login.token);
       navigate('/me');
     } catch (e) {

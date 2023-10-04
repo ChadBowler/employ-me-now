@@ -1,5 +1,4 @@
 //job post model
-// const { Schema, model } = require('mongoose');
 import { Schema, model } from 'mongoose';
 
 const jobPostSchema = new Schema({

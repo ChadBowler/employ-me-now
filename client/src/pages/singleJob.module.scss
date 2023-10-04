@@ -1,12 +1,12 @@
 @import '../styles/variables';
 .singleJobContainer {
-    color: white;
+    color: $primary-text-color;
     padding: 1rem;
   }
   
   .backLink {
     text-decoration: none;
-    color: white;
+    color: $primary-text-color;
     display: inline-flex;
     align-items: center;
     margin-bottom: 1rem;
