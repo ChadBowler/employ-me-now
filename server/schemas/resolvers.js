@@ -122,7 +122,7 @@ const resolvers = {
         );
         await User.findByIdAndUpdate(
           { _id: userId },
-          { $push: { applications: application._id } },
+          { $push: { applications: application._id, jobsAppliedTo: jobId } },
           { new: true }
         );
         return application;

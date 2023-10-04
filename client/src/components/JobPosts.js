@@ -31,7 +31,7 @@ const JobPosts = ({ jobPosts }) => {
 					>
 						<div
 							style={postSize}
-							className='text-white d-flex justify-content-around align-items-center'
+							className='text-white d-flex justify-content-between align-items-center'
 						>
 							<h3>{jobPost.title}</h3>
 							<p className='d-none d-lg-block'>
