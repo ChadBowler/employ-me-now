@@ -5,6 +5,7 @@ import { QUERY_SINGLE_JOB_POST, QUERY_USER } from '../utils/queries';
 import { APPLY_TO_JOB } from '../utils/mutations';
 import Auth from '../utils/auth';
 import {RiArrowGoBackLine} from 'react-icons/ri';
+import styles from './singleJob.module.scss';
 
 const SingleJob = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
@@ -43,15 +44,18 @@ const SingleJob = () => {
   }
 
   return (
-    <>
-      <Link className="text-white" to="/jobs"> <RiArrowGoBackLine />back to my job search</Link>
-      <div className='text-white mt-3'>
-        <h1>{job.title}</h1>
+    <div className={styles.singleJobContainer}>
+      <Link className={styles.backLink} to="/jobs">
+        <RiArrowGoBackLine className={styles.backIcon} />
+        Back to my job search
+      </Link>
+      <div>
+        <h1 className={styles.jobTitle}>{job.title}</h1>
         <div className='ms-3'>
-          <h2>{job.company}</h2>
-          <h4>Salary: ${job.salary}</h4>
+          <h2 className={styles.company}>{job.company}</h2>
+          <h4 className={styles.salary}>Salary: ${job.salary}</h4>
           <div className='container-fluid card p-3'>
-            <h5>Job Description</h5>
+            <h5 className={styles.jobDescription}>Job Description</h5>
             <p className='ms-3'>{job.description}</p>
             {applicationStatus === 'success' ? (
               <div className="alert alert-success" role="alert">
@@ -63,7 +67,7 @@ const SingleJob = () => {
               </div>
             ) : (
               <button
-                className="w-25"
+                className={`${styles.applyButton}`}
                 onClick={handleApply}
               >
                 Apply Now
@@ -72,7 +76,7 @@ const SingleJob = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

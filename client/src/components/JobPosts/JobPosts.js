@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Table from 'react-bootstrap/Table';
 import styles from './JobPosts.module.scss';
 
 const postSize = {
@@ -35,7 +34,7 @@ const jobDescriptionStyle = {
 	color: '#F6F6F6',
 	fontSize: '1.25rem',
 	paddingTop: '40px',
-	fontWeight: 'bold',
+	fontWeight: 'bold'
 }
 
 // const buttonStyle = {
@@ -46,21 +45,18 @@ const jobDescriptionStyle = {
 // 	height: '50px',
 // 	fontWeight: 'bold',
 // };
-const tableStyle = {
-	backgroundColor: '#212529',
-}
 
 const JobPosts = ({ jobPosts }) => {
 	if (!jobPosts) {
 		return <h3 className='text-white text-center'>No Jobs Posted</h3>;
 	}
 	return (
-		<table className='table'>
+		<table className='table table-responsive'>
 		  <thead style={postSize} className={styles.tableHeader}>
-			<tr style={headerStyle}>
+			<tr>
 			  <th style={headerStyle}>Title</th>
 			  <th style={headerDescriptionStyle}>Description</th>
-			  <th style={headerStyle}>Action</th>
+			  {/* <th style={headerStyle}>Action</th> */}
 			</tr>
 		  </thead>
 		  <tbody>
@@ -81,34 +77,6 @@ const JobPosts = ({ jobPosts }) => {
 		  </tbody>
 		</table>
 	  );
-	// return (
-	// 	<div className='d-flex flex-column mx-4'>
-	// 		{jobPosts &&
-	// 			jobPosts.map((jobPost) => (
-	// 				<div
-	// 					key={jobPost._id}
-	// 					className='d-flex justify-content-center'
-	// 				>
-	// 					<div
-	// 						style={postSize}
-	// 						className='text-white d-flex justify-content-between align-items-center'
-	// 					>
-	// 						<h3>{jobPost.title}</h3>
-	// 						<p className='d-none d-lg-block'>
-	// 							{jobPost.description}
-	// 						</p>
-	// 						<Link
-	// 							className='btn d-flex align-items-center justify-content-center'
-	// 							style={buttonStyle}
-	// 							to={`/singleJob/${jobPost._id}`}
-	// 						>
-	// 							See This Job
-	// 						</Link>
-	// 					</div>
-	// 				</div>
-	// 			))}
-	// 	</div>
-	// );
 };
 
 export default JobPosts;

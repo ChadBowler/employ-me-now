@@ -11,6 +11,16 @@
 	padding: 40px 120px;
 	width: 100vh;
 }
+button {
+	color: $primary-text-color;
+	background-color: $primary-color;
+	border: none;
+	width: 150px;
+	height: 50px;
+	font-weight: bold;
+	margin: 15px;
+	border-radius: 5px;
+}
 
 @media (max-width: 767px) {
 	.jobsModal {
