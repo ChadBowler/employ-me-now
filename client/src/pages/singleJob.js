@@ -54,7 +54,7 @@ const SingleJob = () => {
         <div className='ms-3'>
           <h2 className={styles.company}>{job.company}</h2>
           <h4 className={styles.salary}>Salary: ${job.salary}</h4>
-          <div className='container-fluid card p-3'>
+          <div className={`container-fluid card p-3 ${styles.descriptionContainer}`}>
             <h5 className={styles.jobDescription}>Job Description</h5>
             <p className='ms-3'>{job.description}</p>
             {applicationStatus === 'success' ? (
