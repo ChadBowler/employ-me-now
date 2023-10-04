@@ -63,7 +63,7 @@ const EditProfileForm = ({ user, onSave, onCancel }) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<div>
+				{/* <div>
 					<label>Name:</label>
 					<input
 						type='text'
@@ -80,7 +80,7 @@ const EditProfileForm = ({ user, onSave, onCancel }) => {
 						value={editedUser.email}
 						onChange={handleChange}
 					/>
-				</div>
+				</div> */}
 				{/* <div>
             <label>Phone Number:</label>
             <input
