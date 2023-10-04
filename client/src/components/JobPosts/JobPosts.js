@@ -11,20 +11,20 @@ const postSize = {
 const headerStyle = {
 	backgroundColor: '#212529',
 	color: '#F6F6F6',
-	fontSize: '2.5rem',
+	fontSize: '2rem',
 	paddingBottom: '40px',
 	paddingLeft: '20px'
 }
 const headerDescriptionStyle = {
 	backgroundColor: '#212529',
 	color: '#F6F6F6',
-	fontSize: '2.5rem',
+	fontSize: '2rem',
 	paddingBottom: '40px'
 }
 const jobTitleStyle = {
 	backgroundColor: '#212529',
 	color: '#F6F6F6',
-	fontSize: '2rem',
+	fontSize: '1.5rem',
 	paddingTop: '40px',
 	fontWeight: 'bold',
 	paddingLeft: '20px'
@@ -32,7 +32,7 @@ const jobTitleStyle = {
 const jobDescriptionStyle = {
 	backgroundColor: '#212529',
 	color: '#F6F6F6',
-	fontSize: '1.25rem',
+	fontSize: '1rem',
 	paddingTop: '40px',
 	fontWeight: 'bold'
 }
