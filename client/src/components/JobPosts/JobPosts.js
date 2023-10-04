@@ -6,7 +6,7 @@ const postSize = {
 	height: '10rem',
 	width: '100%',
 	border: '1rem solid #1F5014',
-	marginTop: '1rem',
+	marginTop: '1rem'
 };
 const headerStyle = {
 	backgroundColor: '#212529',
@@ -36,6 +36,7 @@ const jobDescriptionStyle = {
 	paddingTop: '40px',
 	fontWeight: 'bold'
 }
+
 
 // const buttonStyle = {
 // 	color: 'white',
