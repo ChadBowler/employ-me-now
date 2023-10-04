@@ -31,6 +31,37 @@ query user($username: String!) {
 }
 `;
 
+export const GET_USER_PROFILE = gql`
+  query GetUserProfile($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      bio {
+        skills
+        location
+        userDescription
+      }
+      postedJobs {
+        title
+        salary
+        description
+        dateCreated
+        company
+        _id
+      }
+      jobsAppliedTo { 
+        title
+        salary
+        description
+        dateCreated
+        company
+        _id
+      }
+    }
+  }
+`;
+
 // export const QUERY_JOB_POSTS = gql`
 // 	query getJobPosts {
 // 		jobPosts {
@@ -69,6 +100,7 @@ export const QUERY_JOB_POSTS = gql`
 export const QUERY_SINGLE_JOB_POST = gql`
 query JobPost($id: ID!) {
   jobPost(_id: $id) {
+    _id
     title
     description
     salary

@@ -66,7 +66,7 @@ export const ContactForm = () => {
         <textarea className={`${styles.message}`} name="message" required minLength={5} maxLength={500} />
         {messageError && <div className={`${styles.errorMessage}`}>{messageError}</div>}
       </label>
-      <input className="btn btn-outline-secondary text-light m-2" type="submit" value="Send" />
+      <input className="btn text-light m-2" type="submit" value="Send" />
       {successMessage && <div>{successMessage}</div>}
     </form>
   );

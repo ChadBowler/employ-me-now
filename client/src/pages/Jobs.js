@@ -13,6 +13,7 @@ const buttonStyle = {
 	color: 'white',
 	backgroundColor: '#1F5014',
 	border: 'none',
+	borderRadius: '10px',
 	width: '150px',
 	height: '50px',
 	fontWeight: 'bold',
