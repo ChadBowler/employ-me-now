@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import JobPosts from '../components/JobPosts';
+import JobPosts from '../components/JobPosts/JobPosts';
 import PostJob from '../components/PostJob/PostJob';
 import Modal from 'react-modal';
 import { useQuery } from '@apollo/client';
@@ -13,6 +13,7 @@ const buttonStyle = {
 	color: 'white',
 	backgroundColor: '#1F5014',
 	border: 'none',
+	borderRadius: '10px',
 	width: '150px',
 	height: '50px',
 	fontWeight: 'bold',

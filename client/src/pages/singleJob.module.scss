@@ -1,0 +1,53 @@
+@import '../styles/variables';
+.singleJobContainer {
+    color: white;
+    padding: 1rem;
+  }
+  
+  .backLink {
+    text-decoration: none;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .backIcon {
+    margin-right: 0.5rem;
+  }
+  .descriptionContainer {
+    border: 12px solid $primary-color;
+    border-radius: 5px;
+    background-color: $primary-bg;
+    color: $primary-text-color;
+  }
+  
+  jobTitle {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  
+  company {
+    font-size: 1.5rem;
+  }
+  
+  salary {
+    font-size: 1.2rem;
+  }
+  
+  jobDescription {
+    margin-top: 1rem;
+  }
+  
+  applyButton {
+    background-color: $primary-color;
+    color: $primary-text-color;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    padding-top: 12px;
+  }
+  applyButton:hover {
+    background-color: $tertiary-color;
+  }
+  

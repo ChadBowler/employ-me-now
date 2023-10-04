@@ -17,7 +17,7 @@
   textarea {
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid $tertiary-color;
     border-radius: 4px;
     width: 100%;
   }
@@ -29,7 +29,7 @@
   
   input[type="submit"] {
     background-color: $primary-color;
-    color: #fff;
+    color: $primary-text-color;
     padding: 10px 20px;
     border: 1px solid $tertiary-color;
     border-radius: 10px;

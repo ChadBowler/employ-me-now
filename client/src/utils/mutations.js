@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-	mutation addUser($name: String!, $username: String!, $email: String!, $password: String!, $phoneNumber: String!) {
-		addUser(name: $name, username: $username, email: $email, password: $password, phoneNumber: $phoneNumber) {
+	mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
+		addUser(name: $name, username: $username, email: $email, password: $password) {
 			token
 			user {
 				_id
@@ -66,19 +66,28 @@ mutation deleteJobPost($jobId: ID!) {
 }
 `;
 
+// export const APPLY_TO_JOB = gql`
+//   mutation applyToJob($userId: ID!
+//     $jobId: ID!
+//   ) {
+//     applyToJob(
+//       userId: $userId
+//       jobId: $jobId
+//     ) {
+//       _id
+//       jobId
+//     }
+// 	}
+// `;
 export const APPLY_TO_JOB = gql`
   mutation applyToJob($userId: ID!
-    $resume: String!
     $jobId: ID!
   ) {
     applyToJob(
       userId: $userId
-      resume: $resume
       jobId: $jobId
     ) {
       _id
-      resume
-      jobId
     }
 	}
 `;
