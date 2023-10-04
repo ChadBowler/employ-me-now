@@ -11,14 +11,14 @@ const postSize = {
 const headerStyle = {
 	backgroundColor: '#212529',
 	color: '#F6F6F6',
-	fontSize: '3rem',
+	fontSize: '2.5rem',
 	paddingBottom: '40px',
 	paddingLeft: '20px'
 }
 const headerDescriptionStyle = {
 	backgroundColor: '#212529',
 	color: '#F6F6F6',
-	fontSize: '3rem',
+	fontSize: '2.5rem',
 	paddingBottom: '40px'
 }
 const jobTitleStyle = {
