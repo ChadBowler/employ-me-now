@@ -11,7 +11,6 @@ type User {
   username: String
   email: String
   password: String
-  phoneNumber: String
   bio: [Bio]!
   resume: String
   jobsAppliedTo: [JobPost]!
@@ -63,7 +62,7 @@ type File {
 }
 
 type Mutation {
-  addUser(name: String!, username: String!, email: String!, password: String!, phoneNumber: String!): Auth
+  addUser(name: String!, username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
   postJob(userId: ID!, title: String!, company: String!, salary: String!, description: String!): JobPost
   applyToJob(userId: ID!, jobId: ID!): Application

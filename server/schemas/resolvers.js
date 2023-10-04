@@ -1,15 +1,7 @@
 // resolvers
-// const { AuthenticationError } = require('apollo-server-express');
-// const { User, JobPost, Application } = require('../models');
-// const { signToken } = require('../utils/auth');
-// const { GraphQLUpload } = require('graphql-upload');
-// const fs = require('fs');
-// const path = require('path');
-// const { createWriteStream } = require('fs');
 import { AuthenticationError } from 'apollo-server-express';
 import { User, JobPost, Application } from '../models/index.js';
 import { signToken } from '../utils/auth.js';
-// import { GraphQLUpload } from 'graphql-upload';
 import fs from 'fs';
 import path from 'path';
 import { createWriteStream } from 'fs';
@@ -46,8 +38,8 @@ const resolvers = {
 
   Mutation: {
     // adds new user
-    addUser: async (parent, { name, username, email, password, phoneNumber }) => {
-      const user = await User.create({ name, username, email, password, phoneNumber });
+    addUser: async (parent, { name, username, email, password }) => {
+      const user = await User.create({ name, username, email, password });
       const token = signToken(user);
       return { token, user };
     },

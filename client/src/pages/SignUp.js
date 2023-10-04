@@ -3,39 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-const flexContainerStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  height: 'calc(100vh - 20px)',
-  paddingTop: '20px',
-  backgroundColor: '#272727',
+const someStyle = {
+  maxWidth: '400px',
+  margin: '0 auto',
+  padding: '20px',
 };
 
-const formColumnStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-};
-
-const formInputStyles = {
-  marginBottom: '10px',
-};
-
-const btnPrimaryStyles = {
-  backgroundColor: '#1F5014',
-  color: '#F6F6F6',
-  border: 'none',
-};
-
-const btnPrimaryHoverStyles = {
-  backgroundColor: '#343a40',
-};
-
-const btnPrimaryActiveStyles = {
-  backgroundColor: '#343a40',
+const buttonStyle = {
+  background: '#1F5014',
+  borderRadius: '10px',
+  color: 'white',
 };
 
 const Signup = () => {
@@ -44,20 +24,21 @@ const Signup = () => {
     email: '',
     password: '',
     name: '',
-    phoneNumber: '',
+    // phoneNumber: '',
   });
+
   const [errorState, setErrorState] = useState({
     username: '',
     email: '',
     name: '',
-    phoneNumber: '',
+    // phoneNumber: '',
   });
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-      // If name is "phoneNumber," parse the value as an integer
     setFormState({
       ...formState,
       [name]: value,
@@ -71,7 +52,6 @@ const Signup = () => {
 
   const handleBlur = (event) => {
     const { name, value } = event.target;
-
     const errors = { ...errorState };
     if (!value) {
       errors[name] = 'This field is required';
@@ -80,13 +60,12 @@ const Signup = () => {
     } else {
       errors[name] = '';
     }
-
     setErrorState(errors);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formState);
+
     const errors = {};
     Object.keys(formState).forEach((key) => {
       if (!formState[key]) {
@@ -104,10 +83,9 @@ const Signup = () => {
       try {
         const { data } = await addUser({
           variables: { ...formState },
-          refetchQueries: [{ query: QUERY_USER }, { query: QUERY_ME }],
         });
-
         Auth.login(data.addUser.token);
+        navigate('/me');
       } catch (e) {
         console.error(e);
       }
@@ -115,106 +93,113 @@ const Signup = () => {
   };
 
   return (
-    <main style={flexContainerStyles}>
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/me">to your dashboard.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit} style={formColumnStyles}>
-                <div className="form-group">
-                  <input
-                    style={formInputStyles}
-                    placeholder="Your name"
-                    name="name"
-                    type="text"
-                    value={formState.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errorState.name && (
-                    <div className="error-message">{errorState.name}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    style={formInputStyles}
-                    placeholder="Your username"
-                    name="username"
-                    type="text"
-                    value={formState.username}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errorState.username && (
-                    <div className="error-message">{errorState.username}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    style={formInputStyles}
-                    placeholder="Your email"
-                    name="email"
-                    type="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errorState.email && (
-                    <div className="error-message">{errorState.email}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    style={formInputStyles}
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errorState.password && (
-                    <div className="error-message">{errorState.password}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    style={formInputStyles}
-                    placeholder="Your phone number"
-                    name="phoneNumber"
-                    type="tel"
-                    value={formState.phoneNumber}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errorState.phoneNumber && (
-                    <div className="error-message">{errorState.phoneNumber}</div>
-                  )}
-                </div>
-                <button
-                  style={{ ...btnPrimaryStyles, cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
+    <div className="text-white" style={someStyle}>
+      <h1 className="text-center">Sign Up</h1>
+      {data ? (
+        <p>
+          Success! You may now head{' '}
+          <Link to="/me">to your dashboard.</Link>
+        </p>
+      ) : (
+        <Form onSubmit={handleFormSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Label>Your Name:</Form.Label>
+            <Form.Control
+              name="name"
+              value={formState.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="text"
+              placeholder="Your name"
+            />
+            {errorState.name && (
+              <div className="error-message">{errorState.name}</div>
             )}
+          </Form.Group>
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
+          <Form.Group className="mb-3" controlId="formBasicUsername">
+            <Form.Label>Your Username:</Form.Label>
+            <Form.Control
+              name="username"
+              value={formState.username}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="text"
+              placeholder="Your username"
+            />
+            {errorState.username && (
+              <div className="error-message">{errorState.username}</div>
             )}
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Your Email:</Form.Label>
+            <Form.Control
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="email"
+              placeholder="Your email"
+            />
+            {errorState.email && (
+              <div className="error-message">{errorState.email}</div>
+            )}
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              name="password"
+              value={formState.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="password"
+              placeholder="******"
+            />
+            {errorState.password && (
+              <div className="error-message">{errorState.password}</div>
+            )}
+          </Form.Group>
+
+          {/* <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
+            <Form.Label>Your Phone Number:</Form.Label>
+            <Form.Control
+              name="phoneNumber"
+              value={formState.phoneNumber}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="tel"
+              placeholder="Your phone number"
+            />
+            {errorState.phoneNumber && (
+              <div className="error-message">{errorState.phoneNumber}</div>
+            )}
+          </Form.Group> */}
+
+          <div className="d-flex justify-content-center">
+            <Button
+              style={{ ...buttonStyle, cursor: 'pointer' }}
+              variant="primary-color"
+              type="submit"
+            >
+              Submit
+            </Button>
           </div>
+        </Form>
+      )}
+
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">
+          {error.message}
         </div>
+      )}
+
+      <div className="text-center">
+        <p>Already have an account?</p>
+        <Link to="/login">Log in here</Link>
       </div>
-    </main>
+    </div>
   );
 };
 

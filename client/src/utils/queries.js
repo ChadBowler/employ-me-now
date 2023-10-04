@@ -4,7 +4,6 @@ export const QUERY_USER = gql`
 query user($username: String!) {
   user(username: $username) {
     username
-    phoneNumber
     password
     name
     email
@@ -92,7 +91,6 @@ query me {
       userDescription
     }
     name
-    phoneNumber
 		applications {
 			_id
 			dateApplied
