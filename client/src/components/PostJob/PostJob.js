@@ -8,7 +8,7 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
   const [formData, setFormData] = useState({
     title: '',
     company: '',
-    salary: 10000,
+    salary: '',
     description: '',
   });
 
@@ -16,6 +16,7 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
   // console.log(Auth.getProfile().data._id);
   const [postJob] = useMutation(POST_JOB);
   const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
  
   const salaryOptions = [];
   const maxSalary = 1000000;
@@ -36,6 +37,10 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(formData);
+    if (formData.salary === '') {
+      setErrorMessage('Please choose a salary.'); // Set error message
+      return; // Prevent form submission
+    }
     try {
       const { data } = await postJob({
         variables: {
@@ -48,10 +53,11 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
       setFormData({
         title: '',
         company: '',
-        salary: 10000,
+        salary: '',
         description: '',
       });
       setSuccessMessage('Job posting added successfully');
+      setErrorMessage(''); //clear error message
       onAddJobPosting();
       // Handle the response data as needed
       // console.log('Job posting added:', data.postJob);
@@ -124,6 +130,7 @@ const PostJob = ({ onAddJobPosting, onCancel }) => {
             required
           />
         </div>
+        <div className={styles['error-message']}>{errorMessage}</div>
         <div>
           <button type="submit">Add Job Posting</button>
           <button type="button" onClick={onCancel}>

@@ -9,7 +9,6 @@ const applicationSchema = new Schema({
   },
   resume: {
     type: String,
-    required: true,
     trim: true,
   },
   dateApplied: {

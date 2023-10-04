@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery, gql, useApolloClient } from '@apollo/client';
 import Auth from '../../utils/auth';
 import Modal from 'react-modal';
@@ -15,27 +16,34 @@ import { DELETE_JOB_POST } from "../../utils/mutations";
 Modal.setAppElement('#root');
 
 const GET_USER_PROFILE = gql`
-
-query GetUserProfile($username: String!) {
-  user(username: $username) {
-    _id
-    username
-    email
-    bio {
-      skills
-      location
-      userDescription
-    }
-    postedJobs {
-      title
-      salary
-      description
-      dateCreated
-      company
+  query GetUserProfile($username: String!) {
+    user(username: $username) {
       _id
-    } 
+      username
+      email
+      bio {
+        skills
+        location
+        userDescription
+      }
+      postedJobs {
+        title
+        salary
+        description
+        dateCreated
+        company
+        _id
+      }
+      jobsAppliedTo {  # Add the jobsAppliedTo field
+        title
+        salary
+        description
+        dateCreated
+        company
+        _id
+      }
+    }
   }
-}
 `;
 
 const UserProfile = () => {
@@ -91,12 +99,76 @@ const UserProfile = () => {
     }
   };
 
+  // return (
+  //   <>
+  //     <div>
+  //       <h1>User Profile: {user.username}</h1>
+  //       <p>Email: {user.email}</p>
+  //       {/* <p>Phone Number: {user.bio.phoneNumber}</p> */}
+  //       {user.bio.length > 0 ? (
+  //         <>
+  //           <p>Skills: {user.bio[0].skills}</p>
+  //           <p>Location: {user.bio[0].location}</p>
+  //           <p>User Description: {user.bio[0].userDescription}</p>
+  //         </>
+  //       ) : (
+  //         <p>No bio information available.</p>
+  //       )}
+  //       <button onClick={handleEditProfileClick}>Edit Profile</button>
+  //     </div>
+  //     {user.postedJobs.length > 0 ? (
+  //       <>
+  //       {user.postedJobs.map((post) => (
+  //       <div key={post._id} className="d-flex align-items-center">
+  //         <h4>{post.title}</h4>
+  //         <button onClick={() => handleDelete(post._id)}><AiFillDelete/></button>
+  //       </div>
+  //       ))}
+  //       </>
+  //       ) : (
+  //         <p>No jobs posted.</p>
+  //       )}
+  //       <div>
+  //     <h2>Jobs Applied To</h2>
+  //     {user.jobsAppliedTo.length > 0 ? (
+  //       <>
+  //         {user.jobsAppliedTo.map((appliedJob) => (
+  //           <div key={appliedJob._id} className="d-flex align-items-center">
+  //             <h4>
+  //               {/* Create a link to the individual job page */}
+  //               <Link to={`/singleJob/${appliedJob._id}`}>
+  //                 {appliedJob.title}
+  //               </Link>
+  //             </h4>
+  //           </div>
+  //         ))}
+  //       </>
+  //     ) : (
+  //       <p>No jobs applied to.</p>
+  //     )}
+  //   </div>
+
+	// 		<Modal
+	// 			isOpen={isModalOpen}
+	// 			onRequestClose={closeModal}
+	// 			contentLabel='Edit Profile Modal'
+	// 			className={`${styles.profileModal}`}
+	// 		>
+	// 			<h2>Edit Profile</h2>
+	// 			<EditProfileForm
+	// 				user={user}
+	// 				onSave={handleSaveProfileClick}
+	// 				onCancel={closeModal}
+	// 			/>
+	// 		</Modal>
+	// 	</>
+	// );
   return (
-    <>
-      <div>
+    <div className={styles.userProfileContainer}>
+      {/* User Profile Section */}
+      <div className={styles.userProfileSection}>
         <h1>User Profile: {user.username}</h1>
         <p>Email: {user.email}</p>
-        {/* <p>Phone Number: {user.bio.phoneNumber}</p> */}
         {user.bio.length > 0 ? (
           <>
             <p>Skills: {user.bio[0].skills}</p>
@@ -108,34 +180,64 @@ const UserProfile = () => {
         )}
         <button onClick={handleEditProfileClick}>Edit Profile</button>
       </div>
-      {user.postedJobs.length > 0 ? (
-        <>
-        {user.postedJobs.map((post) => (
-        <div key={post._id} className="d-flex align-items-center">
-          <h4>{post.title}</h4>
-          <button onClick={() => handleDelete(post._id)}><AiFillDelete/></button>
-        </div>
-        ))}
-        </>
+
+      {/* Posted Jobs Section */}
+      <div className={styles.postedJobsSection}>
+        <h2>Posted Jobs</h2>
+        {user.postedJobs.length > 0 ? (
+          <>
+            {user.postedJobs.map((post) => (
+              <div key={post._id} className={styles.jobItem}>
+                <h4>
+                  {/* Create a link to the individual job page */}
+                  <Link to={`/singleJob/${post._id}`}>{post.title}</Link>
+                </h4>
+                <button onClick={() => handleDelete(post._id)}>
+                  <AiFillDelete />
+                </button>
+              </div>
+            ))}
+          </>
         ) : (
           <p>No jobs posted.</p>
         )}
+      </div>
 
-			<Modal
-				isOpen={isModalOpen}
-				onRequestClose={closeModal}
-				contentLabel='Edit Profile Modal'
-				className={`${styles.profileModal}`}
-			>
-				<h2>Edit Profile</h2>
-				<EditProfileForm
-					user={user}
-					onSave={handleSaveProfileClick}
-					onCancel={closeModal}
-				/>
-			</Modal>
-		</>
-	);
+      {/* Jobs Applied To Section */}
+      <div className={styles.jobsAppliedSection}>
+        <h2>Jobs Applied To</h2>
+        {user.jobsAppliedTo.length > 0 ? (
+          <>
+            {user.jobsAppliedTo.map((appliedJob) => (
+              <div key={appliedJob._id} className={styles.jobItem}>
+                <h4>
+                  <Link to={`/singleJob/${appliedJob._id}`}>
+                    {appliedJob.title}
+                  </Link>
+                </h4>
+              </div>
+            ))}
+          </>
+        ) : (
+          <p>No jobs applied to.</p>
+        )}
+      </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel='Edit Profile Modal'
+        className={`${styles.profileModal}`}
+      >
+        <h2>Edit Profile</h2>
+        <EditProfileForm
+          user={user}
+          onSave={handleSaveProfileClick}
+          onCancel={closeModal}
+        />
+      </Modal>
+    </div>
+  );
 };
 
 export default UserProfile;

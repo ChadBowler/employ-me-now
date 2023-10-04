@@ -40,7 +40,6 @@ type JobPost {
 type Application {
   _id: ID
   userId: User
-  resume: String
   dateApplied: String
   accepted: Boolean
 }
@@ -67,7 +66,7 @@ type Mutation {
   addUser(name: String!, username: String!, email: String!, password: String!, phoneNumber: String!): Auth
   login(email: String!, password: String!): Auth
   postJob(userId: ID!, title: String!, company: String!, salary: String!, description: String!): JobPost
-  applyToJob(userId: ID!, resume: String!, jobId: ID!): Application
+  applyToJob(userId: ID!, jobId: ID!): Application
   updateProfile(userId: ID!, skills: String!, location: String!, userDescription: String!, resume: Upload): User
   acceptApplication(applicationId: ID!, accepted: Boolean!): Application
   uploadResume(file: Upload!): File!

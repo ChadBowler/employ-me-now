@@ -109,11 +109,11 @@ const resolvers = {
       }
     },
     // apply to a job
-    applyToJob: async (parent, { resume, jobId }, context) => {
+    applyToJob: async (parent, { userId, jobId }, context) => {
+      console.log('applying');
       if (context.user) {
         const application = await Application.create({
-          userId: context.user._id,
-          resume,
+          userId: userId
         });
         await JobPost.findByIdAndUpdate(
           { _id: jobId },
@@ -121,9 +121,8 @@ const resolvers = {
           { new: true }
         );
         await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          //{_id: userId},
-          { $push: { applications: application._id } },
+          { _id: userId },
+          { $push: { applications: application._id, jobsAppliedTo: jobId } },
           { new: true }
         );
         return application;

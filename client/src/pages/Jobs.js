@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import JobPosts from '../components/JobPosts';
+import JobPosts from '../components/JobPosts/JobPosts';
 import PostJob from '../components/PostJob/PostJob';
 import Modal from 'react-modal';
 import { useQuery } from '@apollo/client';

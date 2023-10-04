@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+
+.tableContainer {
+    margin-top: 1rem;
+  }
+  
+  .tableHeader {
+    background-color: $primary-bg;
+    color: $primary-text-color;
+    font-size: 3rem;
+    padding-bottom: 40px;
+    padding-left: 20px;
+  }
+  
+  .tableRow {
+    background-color: $primary-bg;
+  }
+  
+  .btnSeeJob {
+    background-color: $primary-color;
+    color: $primary-text-color;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    padding-top: 12px;
+  }
+  
+  .btnSeeJob:hover {
+    background-color: $tertiary-color;
+  }
+  
+  @media (max-width: 767px) {
+    .table-responsive {
+      overflow-x: auto;
+    }
+  }
+  
