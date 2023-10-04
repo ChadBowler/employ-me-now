@@ -66,19 +66,28 @@ mutation deleteJobPost($jobId: ID!) {
 }
 `;
 
+// export const APPLY_TO_JOB = gql`
+//   mutation applyToJob($userId: ID!
+//     $jobId: ID!
+//   ) {
+//     applyToJob(
+//       userId: $userId
+//       jobId: $jobId
+//     ) {
+//       _id
+//       jobId
+//     }
+// 	}
+// `;
 export const APPLY_TO_JOB = gql`
   mutation applyToJob($userId: ID!
-    $resume: String!
     $jobId: ID!
   ) {
     applyToJob(
       userId: $userId
-      resume: $resume
       jobId: $jobId
     ) {
       _id
-      resume
-      jobId
     }
 	}
 `;

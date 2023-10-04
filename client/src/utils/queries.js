@@ -4,7 +4,6 @@ export const QUERY_USER = gql`
 query user($username: String!) {
   user(username: $username) {
     username
-    resume
     phoneNumber
     password
     name
@@ -17,7 +16,6 @@ query user($username: String!) {
     }
 		applications {
 			_id
-			resume
 			dateApplied
 			accepted
 		}
@@ -95,10 +93,8 @@ query me {
     }
     name
     phoneNumber
-    resume
 		applications {
 			_id
-			resume
 			dateApplied
 			accepted
 		}
