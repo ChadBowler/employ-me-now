@@ -6,10 +6,10 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
  ## Description
- Employ Me Now is a simple, user-friendly job post board web application utilizing dynamic React deployed through Heroku. Users are able to create and edit profiles, view and create job postings, and apply to jobs. 
+ Employ Me Now is a simple, user-friendly job board web application utilizing dynamic React, and deployed through Heroku. Users are able to create and edit profiles, view and create job postings, and apply to jobs. 
  The goal of this application is to simplify the task of searching for jobs/candidates for both prospective recruiters and job-seekers.
 
- Features the following frameworks, tools, library: <br> 
+ Features the following frameworks, tools, libraries: <br> 
  <small>Bootrap, SCSS, Sass, JWT, Apollo Client, MongoDB, GraphQL, Prettier, EsLint</small>
 
  **Git Repository link: <br>
