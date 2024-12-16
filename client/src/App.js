@@ -8,7 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Jobs from './pages/Jobs';

@@ -1,0 +1,29 @@
+/* Header.module.scss */
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1F5014;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  
+  .logo {
+    height: 75px;
+    width: 200px;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .button {
+    background: #1F5014;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .fixed-top {
+    background: #1F5014;
+  }
